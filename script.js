@@ -1,4 +1,4 @@
-/* Dummy URLs — replace with real URLs */
+/* my very very long list of photos as URLs from my blog bc... yeah best hosting service lmao */
 const images = {
   1: ["https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/01.png",
       "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02.png",
@@ -55,7 +55,7 @@ const images = {
       "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08-5.png"]
 };
 
-/* Pick one random card for a category */
+/* da code to make em pick one random card for a category */
 function pickRandom(category) {
   const arr = images[category];
   const randomURL = arr[Math.floor(Math.random() * arr.length)];
@@ -71,7 +71,7 @@ function pickRandom(category) {
   }, 50);
 }
 
-/* Randomize all categories into tarot deck layout */
+/* da code for randomize all categories into tarot deck layout */
 function randomizeAll() {
   const tarotContainer = document.getElementById("tarotContainer");
   tarotContainer.innerHTML = ""; // clear previous
@@ -85,14 +85,14 @@ function randomizeAll() {
     img.src = randomURL;
     tarotContainer.appendChild(img);
 
-    // animate
+    // animate these mfs
     setTimeout(() => {
       img.classList.add("show");
     }, 50);
   }
 }
 
-/* Reset all images */
+/* Reset all images bc lets be hosnst we're gonna hate what we get at some point */
 function resetAll() {
   // reset single categories
   for (let i = 1; i <= 6; i++) {
