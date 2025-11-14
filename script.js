@@ -1,11 +1,58 @@
 /* Dummy URLs — replace with real URLs */
 const images = {
-  1: ["https://example.com/cat1_1.jpg","https://example.com/cat1_2.jpg","https://example.com/cat1_3.jpg","https://example.com/cat1_4.jpg","https://example.com/cat1_5.jpg","https://example.com/cat1_6.jpg","https://example.com/cat1_7.jpg","https://example.com/cat1_8.jpg"],
-  2: ["https://example.com/cat2_1.jpg","https://example.com/cat2_2.jpg","https://example.com/cat2_3.jpg","https://example.com/cat2_4.jpg","https://example.com/cat2_5.jpg","https://example.com/cat2_6.jpg","https://example.com/cat2_7.jpg","https://example.com/cat2_8.jpg"],
-  3: ["https://example.com/cat3_1.jpg","https://example.com/cat3_2.jpg","https://example.com/cat3_3.jpg","https://example.com/cat3_4.jpg","https://example.com/cat3_5.jpg","https://example.com/cat3_6.jpg","https://example.com/cat3_7.jpg","https://example.com/cat3_8.jpg"],
-  4: ["https://example.com/cat4_1.jpg","https://example.com/cat4_2.jpg","https://example.com/cat4_3.jpg","https://example.com/cat4_4.jpg","https://example.com/cat4_5.jpg","https://example.com/cat4_6.jpg","https://example.com/cat4_7.jpg","https://example.com/cat4_8.jpg"],
-  5: ["https://example.com/cat5_1.jpg","https://example.com/cat5_2.jpg","https://example.com/cat5_3.jpg","https://example.com/cat5_4.jpg","https://example.com/cat5_5.jpg","https://example.com/cat5_6.jpg","https://example.com/cat5_7.jpg","https://example.com/cat5_8.jpg"],
-  6: ["https://example.com/cat6_1.jpg","https://example.com/cat6_2.jpg","https://example.com/cat6_3.jpg","https://example.com/cat6_4.jpg","https://example.com/cat6_5.jpg","https://example.com/cat6_6.jpg","https://example.com/cat6_7.jpg","https://example.com/cat6_8.jpg"]
+  1: ["https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/01.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/03.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08.png"],
+  
+  2: ["https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/01-1.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02-1.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/03-1.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04-1.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05-1.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06-1.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07-1.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08-1.png"],
+  
+  3: ["https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/01-2.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02-2.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/03-2.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04-2.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05-2.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06-2.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07-2.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08-2.png"],
+  
+  4: ["https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/01-3.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02-3.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/03-3.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04-3.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05-3.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06-3.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07-3.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08-3.png"],
+  
+  5: ["https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02-4.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04-4.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05-4.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06-4.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07-4.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08-4.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/09.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/10.png"],
+  
+  6: ["https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/01-4.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02-5.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/03-4.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04-5.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05-5.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06-5.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07-5.png",
+      "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08-5.png"]
 };
 
 /* Pick one random card for a category */
