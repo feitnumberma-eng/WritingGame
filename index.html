@@ -1,0 +1,53 @@
+<div id="cardApp">
+  
+  <!-- Title -->
+  <h2 class="widgetTitle">عنوان الصفحة أو التمرين</h2>
+  <hr>
+
+  <!-- Randomize All -->
+  <button class="randAllBtn" onclick="randomizeAll()">اضغط لاختيار الكل</button>
+
+  <!-- Container for tarot-style cards (Randomize All results) -->
+  <div id="tarotContainer" class="tarotDeck"></div>
+
+  <!-- Break line now AFTER tarot cards -->
+  <hr>
+
+  <!-- Single Category Buttons -->
+  <div class="category" id="cat1">
+    <button onclick="pickRandom(1)">التصنيف</button>
+    <div class="imgContainer"><img class="resultImage" id="img1"></div>
+  </div>
+
+  <div class="category" id="cat2">
+    <button onclick="pickRandom(2)">التسلسل الزمني</button>
+    <div class="imgContainer"><img class="resultImage" id="img2"></div>
+  </div>
+
+  <div class="category" id="cat3">
+    <button onclick="pickRandom(3)">العنصر غير المتوقع</button>
+    <div class="imgContainer"><img class="resultImage" id="img3"></div>
+  </div>
+
+  <div class="category" id="cat4">
+    <button onclick="pickRandom(4)">الراوي</button>
+    <div class="imgContainer"><img class="resultImage" id="img4"></div>
+  </div>
+
+  <div class="category" id="cat5">
+    <button onclick="pickRandom(5)">الموضوع</button>
+    <div class="imgContainer"><img class="resultImage" id="img5"></div>
+  </div>
+
+  <div class="category" id="cat6">
+    <button onclick="pickRandom(6)">البداية</button>
+    <div class="imgContainer"><img class="resultImage" id="img6"></div>
+  </div>
+
+ <!-- Break line now AFTER tarot cards -->
+  <hr>
+  
+  <!-- Reset All button at the end -->
+  <button class="resetBtn" onclick="resetAll()">إعادة تعيين الكل</button>
+
+</div>

@@ -1,0 +1,110 @@
+/* Google Font for Arabic */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');
+
+/* Transparent background and RTL */
+body {
+  background: transparent;
+  font-family: 'Tajawal', sans-serif;
+  direction: rtl;
+}
+
+/* Main widget border and padding */
+#cardApp {
+  border: 2px solid #a97852;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Title */
+.widgetTitle {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+/* Buttons */
+button {
+  padding: 10px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background: #a97852;
+  color: white;
+  border-radius: 6px;
+  font-family: 'Tajawal', sans-serif;
+}
+
+/* Randomize All button */
+.randAllBtn {
+  font-size: 18px;
+  padding: 12px 20px;
+}
+
+/* Reset All button */
+.resetBtn {
+  font-size: 18px;
+  padding: 12px 20px;
+  margin-top: 10px;
+}
+
+/* Horizontal rule styling */
+hr {
+  width: 100%;
+  border: 1px solid #a97852;
+}
+
+/* Single category buttons */
+.category {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Image container for centering */
+.imgContainer {
+  display: flex;
+  justify-content: center;
+}
+
+/* Medium image sizing */
+.resultImage {
+  width: 150px;
+  max-width: 90%;
+  display: none;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Slide-in animation */
+.resultImage.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Tarot deck container */
+#tarotContainer {
+  display: none; /* hidden initially */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+#tarotContainer img {
+  width: 150px;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+#tarotContainer img.show {
+  opacity: 1;
+  transform: translateY(0);
+}
