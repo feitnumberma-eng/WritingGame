@@ -9,7 +9,7 @@ body {
 }
 
 .topLogo {
-    width: 10px;       /* size of the logo */
+    width: 40px;       /* size of the logo */
     height: auto;
     display: block !important;
     margin: 0 auto 15px;
