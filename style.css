@@ -9,10 +9,9 @@ body {
 }
 
 .topLogo {
-    position: static !important;  /* THIS is what fixes the top-right issue i hope */
-    width: 60px !important;
+    width: 60px;
     height: auto;
-    display: block !important;
+    display: block;
     margin: 10px auto 15px;
 }
 
