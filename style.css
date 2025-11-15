@@ -9,7 +9,6 @@ body {
 }
 
 .topLogo {
-    position: absolute;
     top: 10px;
     right: 10px;
     width: 10px;       /* size of the logo */
