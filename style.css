@@ -9,10 +9,11 @@ body {
 }
 
 .topLogo {
-    width: 60px !important;       /* size of the logo */
+    position: static !important;  /* THIS is what fixes the top-right issue i hope */
+    width: 60px !important;
     height: auto;
     display: block !important;
-    margin: 0 auto 15px;
+    margin: 10px auto 15px;
 }
 
 /* Main widget border and padding */
