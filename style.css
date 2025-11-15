@@ -9,11 +9,8 @@ body {
 }
 
 .topLogo {
-    top: 10px;
-    right: 10px;
     width: 10px;       /* size of the logo */
     height: auto;
-    z-index: 999;      /* this makes sure it stays above everything */
     display: block;
     margin: 0 auto 15px;
 }
