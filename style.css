@@ -1,4 +1,4 @@
-v/* Google Font for Arabic */
+/* Google Font for Arabic */
 @import url('https://fonts.googleapis.com/css2?family=Tajawal&display=swap');
 
 /* Transparent background and RTL */
@@ -9,7 +9,7 @@ body {
 }
 
 .topLogo {
-    width: 40px !important;       /* size of the logo */
+    width: 60px !important;       /* size of the logo */
     height: auto;
     display: block !important;
     margin: 0 auto 15px;
