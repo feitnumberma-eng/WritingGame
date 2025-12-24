@@ -156,3 +156,28 @@ hr {
   opacity: 1;
   transform: translateY(0);
 }
+
+.choiceButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.manualPicker {
+  display: none;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.manualPicker img {
+  width: 100%;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  transition: transform 0.2s ease, border 0.2s ease;
+}
+
+.manualPicker img:hover {
+  transform: scale(1.05);
+  border-color: #a97852;
+}
