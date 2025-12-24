@@ -1,7 +1,5 @@
-/* Google Font for Arabic */
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap');
 
-/* Transparent background and RTL */
 body {
   background: transparent;
   font-family: 'Tajawal', sans-serif;
@@ -9,14 +7,11 @@ body {
 }
 
 .topLogo {
-    width: 150px;
-    align-items: center;
-    height: auto;
-    display: block;
-    margin: 10px auto 15px;
+  width: 150px;
+  display: block;
+  margin: 10px auto 15px;
 }
 
-/* Main widget border and padding */
 #cardApp {
   border: 2px solid #a97852;
   border-radius: 12px;
@@ -29,155 +24,76 @@ body {
   align-items: center;
 }
 
-/* Title */
 .widgetTitle {
   text-align: center;
-  margin-bottom: 5px;
 }
 
-
-/* Description styling */
 .description {
-  text-align: right;
-  margin: 0 0 30px 0;
-  padding: 20px;
   background: #f8f3f0;
+  padding: 20px;
   border-radius: 10px;
   border-right: 5px solid #a97852;
-  direction: rtl;
 }
 
-.description h3 {
-  color: #a97852;
-  margin-bottom: 15px;
-  text-align: center;
-  font-size: 22px;
-}
-
-.description p {
-  margin: 12px 0;
-  line-height: 1.7;
-  font-size: 16px;
-}
-
-.description ol {
-  margin: 15px 0;
-  padding-right: 20px;
-}
-
-.description li {
-  margin-bottom: 8px;
-  line-height: 1.6;
-}
-
-.description strong {
-  color: #8b5a3c;
-}
-
-
-/* Buttons */
 button {
   padding: 10px 16px;
   font-size: 16px;
-  cursor: pointer;
   border: none;
   background: #a97852;
   color: white;
   border-radius: 6px;
-  font-family: 'Tajawal', sans-serif;
+  cursor: pointer;
 }
 
-/* Randomize All button */
-.randAllBtn {
-  font-size: 18px;
-  padding: 12px 20px;
-}
-
-/* Reset All button */
+.randAllBtn,
 .resetBtn {
   font-size: 18px;
-  padding: 12px 20px;
-  margin-top: 10px;
 }
 
-/* Horizontal rule styling */
-hr {
-  width: 100%;
-  border: 1px solid #a97852;
-}
-
-/* Single category buttons */
 .category {
   display: flex;
   flex-direction: column;
-  gap: 10px;
   align-items: center;
+  gap: 10px;
 }
 
-/* Image container for centering */
+.choiceRow {
+  display: flex;
+  gap: 10px;
+}
+
 .imgContainer {
   display: flex;
   justify-content: center;
 }
 
-/* Medium image sizing */
 .resultImage {
   width: 150px;
-  max-width: 90%;
   display: none;
   opacity: 0;
   transform: translateY(-20px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition: 0.4s;
 }
 
-/* Slide-in animation */
 .resultImage.show {
   display: block;
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Tarot deck container */
-#tarotContainer {
-  display: none; /* hidden initially */
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-}
-
-#tarotContainer img {
-  width: 150px;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  opacity: 0;
-  transform: translateY(-20px);
-}
-
-#tarotContainer img.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.choiceButtons {
-  display: flex;
-  gap: 10px;
-}
-
 .manualPicker {
   display: none;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
-  margin-top: 15px;
 }
 
 .manualPicker img {
   width: 100%;
   cursor: pointer;
   border-radius: 6px;
-  border: 2px solid transparent;
-  transition: transform 0.2s ease, border 0.2s ease;
 }
 
-.manualPicker img:hover {
-  transform: scale(1.05);
-  border-color: #a97852;
+hr {
+  width: 100%;
+  border: 1px solid #a97852;
 }
