@@ -37,9 +37,17 @@
 
       <!-- Single Category Buttons -->
       <div class="category" id="cat1">
-        <button onclick="pickRandom(1)">التصنيف</button>
-        <div class="imgContainer"><img class="resultImage" id="img1"></div>
-      </div>
+  <div class="choiceButtons">
+    <button onclick="pickRandom(1)">اختيار عشوائي</button>
+    <button onclick="openManualPicker(1)">اختيار يدوي</button>
+  </div>
+
+  <div class="imgContainer">
+    <img class="resultImage" id="img1">
+  </div>
+
+  <div class="manualPicker" id="picker1"></div>
+</div>
 
       <div class="category" id="cat2">
         <button onclick="pickRandom(2)">التسلسل الزمني</button>
@@ -52,15 +60,30 @@
       </div>
 
       <div class="category" id="cat4">
-        <button onclick="pickRandom(4)">الراوي</button>
-        <div class="imgContainer"><img class="resultImage" id="img4"></div>
-      </div>
+  <div class="choiceButtons">
+    <button onclick="pickRandom(4)">اختيار عشوائي</button>
+    <button onclick="openManualPicker(4)">اختيار يدوي</button>
+  </div>
+
+  <div class="imgContainer">
+    <img class="resultImage" id="img4">
+  </div>
+
+  <div class="manualPicker" id="picker4"></div>
+</div>
 
       <div class="category" id="cat5">
-        <button onclick="pickRandom(5)">الموضوع</button>
-        <div class="imgContainer"><img class="resultImage" id="img5"></div>
-      </div>
+  <div class="choiceButtons">
+    <button onclick="pickRandom(5)">اختيار عشوائي</button>
+    <button onclick="openManualPicker(5)">اختيار يدوي</button>
+  </div>
 
+  <div class="imgContainer">
+    <img class="resultImage" id="img5">
+  </div>
+
+  <div class="manualPicker" id="picker5"></div>
+</div>
       <div class="category" id="cat6">
         <button onclick="pickRandom(6)">البداية</button>
         <div class="imgContainer"><img class="resultImage" id="img6"></div>
