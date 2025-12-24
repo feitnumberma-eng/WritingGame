@@ -61,6 +61,7 @@ const images = {
   ]
 };
 
+// --- Random / manual selection ---
 function pickRandom(category) {
   const arr = images[category];
   const img = document.getElementById("img" + category);
@@ -105,6 +106,7 @@ function closePicker(category) {
   if (picker) picker.style.display = "none";
 }
 
+// --- Randomize / reset ---
 function randomizeAll() {
   const tarotContainer = document.getElementById("tarotContainer");
   tarotContainer.innerHTML = "";
@@ -113,11 +115,13 @@ function randomizeAll() {
   for (let i = 1; i <= 6; i++) {
     const img = document.createElement("img");
     img.src = images[i][Math.floor(Math.random() * images[i].length)];
+    img.style.width = '150px';
     tarotContainer.appendChild(img);
   }
 }
 
 function resetAll() {
+  // Reset img1-6
   for (let i = 1; i <= 6; i++) {
     const img = document.getElementById("img" + i);
     if (img) {
@@ -128,7 +132,115 @@ function resetAll() {
     closePicker(i);
   }
 
+  // Clear tarotContainer
   const tarotContainer = document.getElementById("tarotContainer");
   tarotContainer.innerHTML = "";
   tarotContainer.style.display = "none";
+
+  // Hide story section and clear text
+  const storySection = document.getElementById('storySection');
+  storySection.style.display = 'none';
+  const storyText = document.getElementById('storyText');
+  if (storyText) storyText.value = '';
+
+  // Clear finalRow if exists
+  const finalRow = document.getElementById('finalRow');
+  if (finalRow) finalRow.innerHTML = '';
+
+  // Show all per-card buttons and Done button
+  const cardButtons = document.querySelectorAll('.category button');
+  cardButtons.forEach(btn => btn.style.display = 'inline-block');
+  const doneBtn = document.getElementById('doneBtn');
+  if (doneBtn) doneBtn.style.display = 'inline-block';
 }
+
+// --- Done button ---
+function doneAndExport() {
+  // Hide only per-card buttons and Done button
+  const cardButtons = document.querySelectorAll('.category button');
+  cardButtons.forEach(btn => btn.style.display = 'none');
+  const doneBtn = document.getElementById('doneBtn');
+  if (doneBtn) doneBtn.style.display = 'none';
+
+  // Keep Reset All visible
+  document.querySelector('.resetBtn').style.display = 'inline-block';
+
+  showFinalRow();
+}
+
+function showFinalRow() {
+  const storyDiv = document.getElementById('storySection');
+  storyDiv.style.display = 'block';
+
+  let finalRow = document.getElementById('finalRow');
+  if (!finalRow) {
+    finalRow = document.createElement('div');
+    finalRow.id = 'finalRow';
+    finalRow.style.display = 'flex';
+    finalRow.style.justifyContent = 'center';
+    finalRow.style.gap = '10px';
+    finalRow.style.marginBottom = '15px';
+    storyDiv.prepend(finalRow);
+  }
+  finalRow.innerHTML = '';
+
+  // Take img1-6 first, then tarotContainer if empty
+  for (let i = 1; i <= 6; i++) {
+    let imgEl = document.getElementById('img' + i);
+    if (!imgEl || !imgEl.src) {
+      const tarotImg = document.querySelector(`#tarotContainer img:nth-child(${i})`);
+      if (tarotImg) imgEl = tarotImg;
+    }
+    if (imgEl && imgEl.src) {
+      const clone = imgEl.cloneNode();
+      clone.style.width = '150px';
+      clone.style.maxWidth = '90%';
+      clone.style.display = 'block';
+      finalRow.appendChild(clone);
+    }
+  }
+
+  finalRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+// --- Export PNG ---
+document.getElementById('savePNGBtn').addEventListener('click', function() {
+  const exportWrapper = document.createElement('div');
+  exportWrapper.style.width = '900px';
+  exportWrapper.style.padding = '20px';
+  exportWrapper.style.background = '#fff';
+  exportWrapper.style.fontFamily = 'Tajawal, sans-serif';
+  exportWrapper.style.color = '#333';
+  exportWrapper.style.direction = 'rtl';
+  exportWrapper.style.textAlign = 'center';
+
+  // Logo
+  const logo = document.querySelector('.topLogo').cloneNode(true);
+  logo.style.width = '150px';
+  logo.style.height = 'auto';
+  exportWrapper.appendChild(logo);
+
+  // Final cards
+  const finalRow = document.getElementById('finalRow');
+  if (finalRow) exportWrapper.appendChild(finalRow.cloneNode(true));
+
+  // Story text
+  const storyText = document.getElementById('storyText').value;
+  const storyP = document.createElement('p');
+  storyP.style.fontSize = '16px';
+  storyP.style.margin = '20px auto 0 auto';
+  storyP.style.maxWidth = '850px';
+  storyP.style.textAlign = 'right';
+  storyP.textContent = storyText;
+  exportWrapper.appendChild(storyP);
+
+  document.body.appendChild(exportWrapper);
+
+  html2canvas(exportWrapper).then(canvas => {
+    const link = document.createElement('a');
+    link.download = 'قصتي.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+    document.body.removeChild(exportWrapper);
+  });
+});
