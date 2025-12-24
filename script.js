@@ -228,7 +228,7 @@ function doneAndExport() {
   }
 }
 
-// Export story as PNG - FIXED VERSION
+// Export story as PNG - FIXED with Arabic text workaround
 document.getElementById("savePNGBtn").addEventListener("click", function() {
   const saveBtn = this;
   const originalText = saveBtn.textContent;
@@ -238,33 +238,15 @@ document.getElementById("savePNGBtn").addEventListener("click", function() {
   // Get story text
   const storyText = document.getElementById("storyText").value;
   
-  // Collect selected cards with their alt text
-  const selectedCards = [];
-  for (let i = 1; i <= 6; i++) {
-    const img = document.getElementById("img" + i);
-    if (img && img.src && img.src.trim() !== "") {
-      selectedCards.push({
-        alt: img.alt || `البطاقة ${i}`,
-        category: i
-      });
-    }
-  }
-  
-  // Category labels in Arabic
-  const categoryLabels = ['التصنيف', 'التسلسل الزمني', 'العنصر غير المتوقع', 'الراوي', 'الموضوع', 'البداية'];
-  
   // Create export wrapper
   const exportWrapper = document.createElement("div");
   exportWrapper.style.width = "900px";
-  exportWrapper.style.padding = "30px";
+  exportWrapper.style.padding = "20px";
   exportWrapper.style.background = "#fff";
-  exportWrapper.style.fontFamily = "'Tajawal', sans-serif";
+  exportWrapper.style.fontFamily = "Tajawal, sans-serif";
   exportWrapper.style.color = "#333";
   exportWrapper.style.direction = "rtl";
   exportWrapper.style.textAlign = "right";
-  exportWrapper.style.border = "2px solid #a97852";
-  exportWrapper.style.borderRadius = "12px";
-  exportWrapper.style.boxSizing = "border-box";
   
   // Add logo
   const logo = document.createElement("img");
@@ -281,7 +263,6 @@ document.getElementById("savePNGBtn").addEventListener("click", function() {
   title.style.textAlign = "center";
   title.style.marginBottom = "10px";
   title.style.color = "#a97852";
-  title.style.fontSize = "24px";
   exportWrapper.appendChild(title);
   
   // Add horizontal line
@@ -291,6 +272,9 @@ document.getElementById("savePNGBtn").addEventListener("click", function() {
   hr1.style.margin = "10px 0 20px";
   exportWrapper.appendChild(hr1);
   
+  // Category labels in Arabic
+  const categoryLabels = ['التصنيف', 'التسلسل الزمني', 'العنصر غير المتوقع', 'الراوي', 'الموضوع', 'البداية'];
+  
   // Create container for category labels
   const labelsContainer = document.createElement("div");
   labelsContainer.style.display = "flex";
@@ -298,51 +282,51 @@ document.getElementById("savePNGBtn").addEventListener("click", function() {
   labelsContainer.style.justifyContent = "center";
   labelsContainer.style.gap = "10px";
   labelsContainer.style.marginBottom = "10px";
+  exportWrapper.appendChild(labelsContainer);
   
-  // Create container for card text (alt text)
+  // Create container for alt text boxes
   const cardsContainer = document.createElement("div");
   cardsContainer.style.display = "flex";
   cardsContainer.style.flexWrap = "wrap";
   cardsContainer.style.justifyContent = "center";
   cardsContainer.style.gap = "10px";
   cardsContainer.style.marginBottom = "30px";
-  
-  // Add category labels and card text
-  selectedCards.forEach((card, index) => {
-    // Add label
-    const labelDiv = document.createElement("div");
-    labelDiv.textContent = categoryLabels[card.category - 1];
-    labelDiv.style.fontSize = "14px";
-    labelDiv.style.fontWeight = "bold";
-    labelDiv.style.color = "#a97852";
-    labelDiv.style.textAlign = "center";
-    labelDiv.style.width = "150px";
-    labelsContainer.appendChild(labelDiv);
-    
-    // Add card text box (using alt text)
-    const cardTextDiv = document.createElement("div");
-    cardTextDiv.textContent = card.alt;
-    cardTextDiv.style.width = "150px";
-    cardTextDiv.style.height = "150px";
-    cardTextDiv.style.display = "flex";
-    cardTextDiv.style.alignItems = "center";
-    cardTextDiv.style.justifyContent = "center";
-    cardTextDiv.style.textAlign = "center";
-    cardTextDiv.style.padding = "10px";
-    cardTextDiv.style.border = "2px solid #a97852";
-    cardTextDiv.style.borderRadius = "8px";
-    cardTextDiv.style.backgroundColor = "#f8f3f0";
-    cardTextDiv.style.fontSize = "16px";
-    cardTextDiv.style.fontWeight = "500";
-    cardTextDiv.style.color = "#333";
-    cardTextDiv.style.boxSizing = "border-box";
-    cardTextDiv.style.overflow = "hidden";
-    cardTextDiv.style.wordWrap = "break-word";
-    cardsContainer.appendChild(cardTextDiv);
-  });
-  
-  exportWrapper.appendChild(labelsContainer);
   exportWrapper.appendChild(cardsContainer);
+  
+  // Add category labels and alt text boxes
+  for (let i = 1; i <= 6; i++) {
+    const img = document.getElementById("img" + i);
+    if (img && img.src && img.src.trim() !== "") {
+      // Add label
+      const labelDiv = document.createElement("div");
+      labelDiv.textContent = categoryLabels[i-1];
+      labelDiv.style.fontSize = "14px";
+      labelDiv.style.fontWeight = "bold";
+      labelDiv.style.color = "#a97852";
+      labelDiv.style.textAlign = "center";
+      labelDiv.style.width = "150px";
+      labelsContainer.appendChild(labelDiv);
+      
+      // Add alt text box
+      const altTextDiv = document.createElement("div");
+      altTextDiv.textContent = img.alt || `البطاقة ${i}`;
+      altTextDiv.style.width = "150px";
+      altTextDiv.style.height = "150px";
+      altTextDiv.style.display = "flex";
+      altTextDiv.style.alignItems = "center";
+      altTextDiv.style.justifyContent = "center";
+      altTextDiv.style.textAlign = "center";
+      altTextDiv.style.padding = "10px";
+      altTextDiv.style.border = "2px solid #a97852";
+      altTextDiv.style.borderRadius = "8px";
+      altTextDiv.style.backgroundColor = "#f8f3f0";
+      altTextDiv.style.fontSize = "16px";
+      altTextDiv.style.fontWeight = "500";
+      altTextDiv.style.color = "#333";
+      altTextDiv.style.boxSizing = "border-box";
+      cardsContainer.appendChild(altTextDiv);
+    }
+  }
   
   // Add another horizontal line
   const hr2 = document.createElement("hr");
@@ -356,32 +340,54 @@ document.getElementById("savePNGBtn").addEventListener("click", function() {
   storyTitle.textContent = "قصتي:";
   storyTitle.style.color = "#a97852";
   storyTitle.style.marginBottom = "15px";
-  storyTitle.style.fontSize = "20px";
   exportWrapper.appendChild(storyTitle);
   
-  // Add story text - USING textContent (not innerHTML) for proper Arabic
-  const storyDiv = document.createElement("div");
-  storyDiv.textContent = storyText || "لم يتم كتابة قصة بعد.";
-  storyDiv.style.fontFamily = "'Tajawal', sans-serif";
-  storyDiv.style.fontSize = "18px";
-  storyDiv.style.lineHeight = "1.8";
-  storyDiv.style.whiteSpace = "pre-wrap";
-  storyDiv.style.padding = "20px";
-  storyDiv.style.border = "2px solid #a97852";
-  storyDiv.style.borderRadius = "8px";
-  storyDiv.style.minHeight = "200px";
-  storyDiv.style.backgroundColor = "#f8f3f0";
-  storyDiv.style.textAlign = "right";
-  storyDiv.style.direction = "rtl";
-  exportWrapper.appendChild(storyDiv);
+  // FIX: Create story text with SPAN elements for each character
+  const storyContainer = document.createElement("div");
+  storyContainer.style.fontSize = "18px";
+  storyContainer.style.lineHeight = "1.8";
+  storyContainer.style.whiteSpace = "pre-wrap";
+  storyContainer.style.padding = "20px";
+  storyContainer.style.border = "2px solid #a97852";
+  storyContainer.style.borderRadius = "8px";
+  storyContainer.style.minHeight = "200px";
+  storyContainer.style.backgroundColor = "#f8f3f0";
+  storyContainer.style.textAlign = "right";
+  
+  // Process the story text character by character
+  const textToDisplay = storyText || "لم يتم كتابة قصة بعد.";
+  
+  // Split text into words and process each word
+  const words = textToDisplay.split(' ');
+  for (let i = words.length - 1; i >= 0; i--) { // Reverse for RTL
+    const word = words[i];
+    
+    // Create a span for each word
+    const wordSpan = document.createElement("span");
+    wordSpan.textContent = word + (i > 0 ? ' ' : '');
+    wordSpan.style.display = "inline-block";
+    wordSpan.style.whiteSpace = "nowrap";
+    
+    // Add zero-width joiner characters to help with Arabic rendering
+    if (isArabic(word)) {
+      // Add Arabic-specific formatting
+      wordSpan.style.unicodeBidi = "plaintext";
+      wordSpan.style.direction = "rtl";
+    }
+    
+    storyContainer.appendChild(wordSpan);
+  }
+  
+  exportWrapper.appendChild(storyContainer);
   
   // Add footer
   const footer = document.createElement("div");
   footer.style.textAlign = "center";
-  footer.style.marginTop = "30px";
+  footer.style.marginTop = "20px";
   footer.style.paddingTop = "15px";
   footer.style.borderTop = "1px solid #ddd";
   footer.style.color = "#666";
+  footer.style.fontSize = "14px";
   
   const footerText = document.createElement("p");
   footerText.textContent = "تم إنشاؤها بواسطة مدونة فاطمة";
@@ -394,42 +400,48 @@ document.getElementById("savePNGBtn").addEventListener("click", function() {
   footer.appendChild(dateText);
   
   exportWrapper.appendChild(footer);
-  
+
   // Append to body
   document.body.appendChild(exportWrapper);
-  
-  // Use html2canvas with proper options
+
+  // Use html2canvas with specific options for Arabic
   html2canvas(exportWrapper, {
     scale: 2,
     useCORS: true,
-    backgroundColor: "#ffffff",
-    logging: false
-  }).then(function(canvas) {
-    // Create download link
+    letterRendering: true,
+    onclone: function(clonedDoc, element) {
+      // Force Arabic text rendering in the cloned document
+      const storyDiv = element.querySelector('div:last-child');
+      if (storyDiv) {
+        storyDiv.style.fontFamily = "'Tajawal', Arial, sans-serif";
+        storyDiv.style.direction = 'rtl';
+        storyDiv.style.textAlign = 'right';
+        storyDiv.style.unicodeBidi = 'plaintext';
+      }
+      
+      // Process all text nodes to ensure proper Arabic rendering
+      const textNodes = element.querySelectorAll('*');
+      textNodes.forEach(node => {
+        if (node.textContent && isArabic(node.textContent)) {
+          node.style.unicodeBidi = 'plaintext';
+          node.style.direction = 'rtl';
+        }
+      });
+    }
+  }).then(canvas => {
     const link = document.createElement("a");
     link.download = "قصتي_" + new Date().toISOString().slice(0,10) + ".png";
-    link.href = canvas.toDataURL("image/png");
-    
-    // Trigger download
-    document.body.appendChild(link);
+    link.href = canvas.toDataURL();
     link.click();
-    document.body.removeChild(link);
-    
-    // Remove wrapper
     document.body.removeChild(exportWrapper);
     
     // Restore button
     saveBtn.textContent = originalText;
     saveBtn.disabled = false;
-    
   }).catch(function(error) {
-    console.error("Error generating image:", error);
+    console.error("Error:", error);
     alert("حدث خطأ أثناء إنشاء الصورة. يرجى المحاولة مرة أخرى.");
-    
-    // Remove wrapper if it exists
-    if (exportWrapper.parentNode) {
-      document.body.removeChild(exportWrapper);
-    }
+    document.body.removeChild(exportWrapper);
     
     // Restore button
     saveBtn.textContent = originalText;
@@ -437,7 +449,13 @@ document.getElementById("savePNGBtn").addEventListener("click", function() {
   });
 });
 
-// Preload logo for better performance
+// Helper function to detect Arabic text
+function isArabic(text) {
+  const arabicRegex = /[\u0600-\u06FF]/;
+  return arabicRegex.test(text);
+}
+
+// Preload logo
 window.addEventListener('load', function() {
   const logo = new Image();
   logo.src = "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/logo-copy.png";
