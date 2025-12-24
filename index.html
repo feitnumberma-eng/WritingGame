@@ -89,9 +89,25 @@
     <button onclick="pickRandom(6)">اختيار عشوائي</button>
     <div class="imgContainer"><img class="resultImage" id="img6"></div>
   </div>
+<hr>
+<div class="centerButtons">
+  <button class="doneBtn" onclick="doneAndExport()">تم</button>
+</div>
 
+<div id="storySection" style="display:none; width: 100%; max-width: 900px; text-align: right;">
+  <h3>اكتب قصتك هنا:</h3>
+  <!-- final cards will appear here -->
+  <div id="finalRow" style="display:flex; justify-content:center; gap:10px; margin-bottom:15px;"></div>
+  
+  <textarea id="storyText" style="width: 100%; min-height: 200px; font-family: 'Tajawal', sans-serif; font-size: 16px; padding: 10px;"></textarea>
+  
+  <div class="centerButtons" style="margin-top: 10px;">
+    <button id="savePNGBtn">حفظ كصورة</button>
+  </div>
+</div>
   <hr>
   <button class="resetBtn" onclick="resetAll()">إعادة تعيين الكل</button>
+  
   <hr>
 <p>
   <a href="https://fatthatmablog.wordpress.com" target="_blank">Fatma blog</a> | 
@@ -99,7 +115,7 @@
 </p>
   
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
