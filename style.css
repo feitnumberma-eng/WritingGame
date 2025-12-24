@@ -111,3 +111,22 @@ hr {
   width: 150px;
   max-width: 100%;
 }
+
+.doneBtn {
+  font-size: 18px;
+  padding: 12px 20px;
+}
+
+#storySection textarea {
+  resize: vertical;
+  border-radius: 6px;
+  border: 1px solid #a97852;
+}
+#storySection button {
+  background: #a97852;
+  color: #fff;
+  font-size: 18px;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
