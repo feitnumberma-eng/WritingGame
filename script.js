@@ -121,7 +121,6 @@ function randomizeAll() {
 }
 
 function resetAll() {
-  // Reset img1-6
   for (let i = 1; i <= 6; i++) {
     const img = document.getElementById("img" + i);
     if (img) {
@@ -132,26 +131,15 @@ function resetAll() {
     closePicker(i);
   }
 
-  // Clear tarotContainer
   const tarotContainer = document.getElementById("tarotContainer");
   tarotContainer.innerHTML = "";
   tarotContainer.style.display = "none";
 
-  // Hide story section and clear text
   const storySection = document.getElementById('storySection');
-  storySection.style.display = 'none';
-  const storyText = document.getElementById('storyText');
-  if (storyText) storyText.value = '';
+  if (storySection) storySection.style.display = 'none';
 
-  // Clear finalRow if exists
   const finalRow = document.getElementById('finalRow');
   if (finalRow) finalRow.innerHTML = '';
-
-  // Show all per-card buttons and Done button
-  const cardButtons = document.querySelectorAll('.category button');
-  cardButtons.forEach(btn => btn.style.display = 'inline-block');
-  const doneBtn = document.getElementById('doneBtn');
-  if (doneBtn) doneBtn.style.display = 'inline-block';
 }
 
 // --- Done button ---
@@ -159,6 +147,7 @@ function doneAndExport() {
   // Hide only per-card buttons and Done button
   const cardButtons = document.querySelectorAll('.category button');
   cardButtons.forEach(btn => btn.style.display = 'none');
+
   const doneBtn = document.getElementById('doneBtn');
   if (doneBtn) doneBtn.style.display = 'none';
 
@@ -184,7 +173,7 @@ function showFinalRow() {
   }
   finalRow.innerHTML = '';
 
-  // Take img1-6 first, then tarotContainer if empty
+  // Use img1-6 first, then tarotContainer if empty
   for (let i = 1; i <= 6; i++) {
     let imgEl = document.getElementById('img' + i);
     if (!imgEl || !imgEl.src) {
@@ -203,7 +192,7 @@ function showFinalRow() {
   finalRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
-// --- Export PNG ---
+// --- Export to PNG ---
 document.getElementById('savePNGBtn').addEventListener('click', function() {
   const exportWrapper = document.createElement('div');
   exportWrapper.style.width = '900px';
@@ -229,7 +218,7 @@ document.getElementById('savePNGBtn').addEventListener('click', function() {
   const storyP = document.createElement('p');
   storyP.style.fontSize = '16px';
   storyP.style.margin = '20px auto 0 auto';
-  storyP.style.maxWidth = '850px';
+  storyP.style.maxWidth = '850px'; // constrain width so it doesn't stretch
   storyP.style.textAlign = 'right';
   storyP.textContent = storyText;
   exportWrapper.appendChild(storyP);
