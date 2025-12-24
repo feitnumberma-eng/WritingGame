@@ -228,7 +228,7 @@ function doneAndExport() {
   }
 }
 
-// Export story as PNG - FIXED with Arabic text workaround
+// Export story as PNG - FIXED with proper Arabic spacing
 document.getElementById("savePNGBtn").addEventListener("click", function() {
   const saveBtn = this;
   const originalText = saveBtn.textContent;
@@ -342,7 +342,7 @@ document.getElementById("savePNGBtn").addEventListener("click", function() {
   storyTitle.style.marginBottom = "15px";
   exportWrapper.appendChild(storyTitle);
   
-  // FIX: Create story text with SPAN elements for each character
+  // FIX: Create story text with proper spacing
   const storyContainer = document.createElement("div");
   storyContainer.style.fontSize = "18px";
   storyContainer.style.lineHeight = "1.8";
@@ -353,29 +353,55 @@ document.getElementById("savePNGBtn").addEventListener("click", function() {
   storyContainer.style.minHeight = "200px";
   storyContainer.style.backgroundColor = "#f8f3f0";
   storyContainer.style.textAlign = "right";
+  storyContainer.style.direction = "rtl";
+  storyContainer.style.fontFamily = "'Tajawal', sans-serif";
+  storyContainer.style.wordSpacing = "normal";
+  storyContainer.style.letterSpacing = "normal";
   
-  // Process the story text character by character
+  // Process the story text with proper spacing
   const textToDisplay = storyText || "لم يتم كتابة قصة بعد.";
   
-  // Split text into words and process each word
-  const words = textToDisplay.split(' ');
-  for (let i = words.length - 1; i >= 0; i--) { // Reverse for RTL
-    const word = words[i];
+  // Split by lines first to preserve line breaks
+  const lines = textToDisplay.split('\n');
+  
+  for (let lineIndex = 0; lineIndex < lines.length; lineIndex++) {
+    const line = lines[lineIndex];
     
-    // Create a span for each word
-    const wordSpan = document.createElement("span");
-    wordSpan.textContent = word + (i > 0 ? ' ' : '');
-    wordSpan.style.display = "inline-block";
-    wordSpan.style.whiteSpace = "nowrap";
+    // Split line into words
+    const words = line.split(' ');
     
-    // Add zero-width joiner characters to help with Arabic rendering
-    if (isArabic(word)) {
-      // Add Arabic-specific formatting
-      wordSpan.style.unicodeBidi = "plaintext";
-      wordSpan.style.direction = "rtl";
+    // Create a container for this line
+    const lineContainer = document.createElement("div");
+    lineContainer.style.marginBottom = lineIndex < lines.length - 1 ? "1.8em" : "0";
+    
+    // Add words in reverse order for RTL
+    for (let i = words.length - 1; i >= 0; i--) {
+      const word = words[i];
+      if (word.trim() === "") continue;
+      
+      // Create word span
+      const wordSpan = document.createElement("span");
+      wordSpan.textContent = word;
+      
+      // Add proper Arabic styling
+      if (isArabic(word)) {
+        wordSpan.style.unicodeBidi = "plaintext";
+        wordSpan.style.direction = "rtl";
+        wordSpan.style.display = "inline-block";
+      }
+      
+      lineContainer.appendChild(wordSpan);
+      
+      // Add space after word (except for the last word)
+      if (i > 0) {
+        const spaceSpan = document.createElement("span");
+        spaceSpan.innerHTML = "&nbsp;"; // Non-breaking space
+        spaceSpan.style.marginLeft = "1px"; // Explicit spacing for Arabic
+        lineContainer.appendChild(spaceSpan);
+      }
     }
     
-    storyContainer.appendChild(wordSpan);
+    storyContainer.appendChild(lineContainer);
   }
   
   exportWrapper.appendChild(storyContainer);
@@ -404,27 +430,22 @@ document.getElementById("savePNGBtn").addEventListener("click", function() {
   // Append to body
   document.body.appendChild(exportWrapper);
 
-  // Use html2canvas with specific options for Arabic
+  // Use html2canvas with optimized settings
   html2canvas(exportWrapper, {
     scale: 2,
     useCORS: true,
     letterRendering: true,
     onclone: function(clonedDoc, element) {
-      // Force Arabic text rendering in the cloned document
-      const storyDiv = element.querySelector('div:last-child');
-      if (storyDiv) {
-        storyDiv.style.fontFamily = "'Tajawal', Arial, sans-serif";
-        storyDiv.style.direction = 'rtl';
-        storyDiv.style.textAlign = 'right';
-        storyDiv.style.unicodeBidi = 'plaintext';
-      }
-      
-      // Process all text nodes to ensure proper Arabic rendering
-      const textNodes = element.querySelectorAll('*');
-      textNodes.forEach(node => {
-        if (node.textContent && isArabic(node.textContent)) {
-          node.style.unicodeBidi = 'plaintext';
-          node.style.direction = 'rtl';
+      // Ensure all text elements have proper Arabic styling
+      const textElements = element.querySelectorAll('span, div, p, h1, h2, h3');
+      textElements.forEach(el => {
+        if (el.textContent && isArabic(el.textContent)) {
+          el.style.fontFamily = "'Tajawal', Arial, sans-serif";
+          el.style.direction = 'rtl';
+          el.style.textAlign = 'right';
+          el.style.unicodeBidi = 'plaintext';
+          el.style.wordSpacing = 'normal';
+          el.style.letterSpacing = 'normal';
         }
       });
     }
