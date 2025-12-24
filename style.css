@@ -1,5 +1,7 @@
+/* Google Font for Arabic */
 @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap');
 
+/* Base styling */
 body {
   background: transparent;
   font-family: 'Tajawal', sans-serif;
@@ -8,12 +10,15 @@ body {
   padding: 0;
 }
 
+/* Top logo */
 .topLogo {
   width: 150px;
+  height: auto;
   display: block;
   margin: 10px auto 15px;
 }
 
+/* Main container */
 #cardApp {
   border: 2px solid #a97852;
   border-radius: 12px;
@@ -24,19 +29,43 @@ body {
   flex-direction: column;
   gap: 20px;
   align-items: center;
+  box-sizing: border-box;
 }
 
+/* Widget title */
 .widgetTitle {
   text-align: center;
+  margin-bottom: 5px;
 }
 
+/* Description box */
 .description {
   background: #f8f3f0;
   padding: 20px;
   border-radius: 10px;
   border-right: 5px solid #a97852;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+.description h3 {
+  color: #a97852;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+.description p, .description li {
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+.description ol {
+  margin: 15px 0;
+  padding-right: 20px;
+}
+
+/* Buttons */
 button {
   padding: 10px 16px;
   font-size: 16px;
@@ -52,35 +81,31 @@ button {
 .resetBtn,
 .doneBtn {
   font-size: 18px;
+  padding: 12px 20px;
 }
 
-.centerButtons {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
+/* Category container */
 .category {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 10px;
+  align-items: center;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .choiceRow {
   display: flex;
   gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
+/* Image container */
 .imgContainer {
   display: flex;
   justify-content: center;
 }
 
+/* Card images (selected results) */
 .resultImage {
   width: 150px;
   max-width: 90%;
@@ -96,46 +121,88 @@ button {
   transform: translateY(0);
 }
 
+/* Manual picker */
 .manualPicker {
   display: none;
-  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   margin-top: 10px;
 }
 
 .manualPicker img {
-  width: 100%;
-  max-width: 70px;
+  width: 150px;
+  max-width: 100%;
   cursor: pointer;
   border-radius: 6px;
 }
 
+/* Horizontal rule */
 hr {
   width: 100%;
   border: 1px solid #a97852;
 }
 
+/* Tarot container (randomize all) */
+#tarotContainer {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
 #tarotContainer img {
   width: 150px;
   max-width: 90%;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 0;
+  transform: translateY(-20px);
 }
 
-#storySection textarea {
-  resize: vertical;
-  border-radius: 6px;
-  border: 1px solid #a97852;
+#tarotContainer img.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Done button */
+.doneBtn {
+  font-size: 18px;
+  padding: 12px 20px;
+}
+
+/* Story section */
+#storySection {
+  display: none;
   width: 100%;
+  max-width: 900px;
+  text-align: right;
   box-sizing: border-box;
 }
 
-@media (max-width: 500px) {
-  .resultImage,
-  #tarotContainer img {
-    width: 120px;
-    max-width: 90%;
-  }
+#storySection textarea {
+  width: 100%;
+  min-height: 200px;
+  font-family: 'Tajawal', sans-serif;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #a97852;
+  box-sizing: border-box;
+  resize: vertical;
+}
 
-  .manualPicker img {
-    max-width: 60px;
-  }
+/* Story section buttons */
+#storySection button {
+  background: #a97852;
+  color: #fff;
+  font-size: 18px;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Center buttons container */
+.centerButtons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
