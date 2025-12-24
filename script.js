@@ -107,7 +107,7 @@ function closePicker(category) {
   if (picker) picker.style.display = "none";
 }
 
-// Randomize all - FIXED VERSION
+// Randomize all
 function randomizeAll() {
   const tarotContainer = document.getElementById("tarotContainer");
   tarotContainer.innerHTML = "";
@@ -123,7 +123,7 @@ function randomizeAll() {
     closePicker(i);
   }
 
-  // Select random images for each category and update both the main images and tarot container
+  // Select random images for each category
   for (let i = 1; i <= 6; i++) {
     const arr = images[i];
     const randomUrl = arr[Math.floor(Math.random() * arr.length)];
@@ -156,7 +156,7 @@ function randomizeAll() {
     setTimeout(() => {
       tarotImg.style.opacity = "1";
       tarotImg.style.transform = "translateY(0)";
-    }, i * 100); // Stagger the animation
+    }, i * 100);
   }
   
   // Hide the tarot container after 3 seconds
@@ -221,184 +221,154 @@ function doneAndExport() {
   }
 }
 
-// Export story as PNG (with cards and logo) - FIXED VERSION
+// SIMPLE WORKING VERSION for PNG export
 document.getElementById("savePNGBtn").addEventListener("click", async function() {
-  // Wait a moment for images to load
-  await new Promise(resolve => setTimeout(resolve, 500));
+  const saveBtn = this;
+  const originalText = saveBtn.textContent;
+  saveBtn.textContent = "جاري التحميل...";
+  saveBtn.disabled = true;
   
-  const exportWrapper = document.createElement("div");
-  exportWrapper.style.width = "900px";
-  exportWrapper.style.padding = "30px";
-  exportWrapper.style.background = "#fff";
-  exportWrapper.style.fontFamily = "'Tajawal', sans-serif";
-  exportWrapper.style.color = "#333";
-  exportWrapper.style.direction = "rtl";
-  exportWrapper.style.textAlign = "right";
-  exportWrapper.style.border = "2px solid #a97852";
-  exportWrapper.style.borderRadius = "12px";
-  exportWrapper.style.boxSizing = "border-box";
-  exportWrapper.style.position = "absolute";
-  exportWrapper.style.left = "-9999px";
-  exportWrapper.style.top = "0";
-
-  // Add logo
-  const logo = document.createElement("img");
-  logo.src = "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/logo-copy.png";
-  logo.style.width = "150px";
-  logo.style.height = "auto";
-  logo.style.display = "block";
-  logo.style.margin = "0 auto 15px";
-  exportWrapper.appendChild(logo);
-
-  // Add title
-  const title = document.createElement("h2");
-  title.textContent = "تمرين الكتابة الجريئة";
-  title.style.textAlign = "center";
-  title.style.marginBottom = "10px";
-  title.style.color = "#a97852";
-  exportWrapper.appendChild(title);
-
-  // Add horizontal line
-  const hr1 = document.createElement("hr");
-  hr1.style.width = "100%";
-  hr1.style.border = "1px solid #a97852";
-  hr1.style.margin = "10px 0 20px";
-  exportWrapper.appendChild(hr1);
-
-  // Add category labels container
-  const labelsContainer = document.createElement("div");
-  labelsContainer.style.display = "flex";
-  labelsContainer.style.flexWrap = "wrap";
-  labelsContainer.style.justifyContent = "center";
-  labelsContainer.style.gap = "10px";
-  labelsContainer.style.marginBottom = "15px";
-  
-  // Category labels in Arabic
-  const categoryLabels = ["التصنيف", "التسلسل الزمني", "العنصر غير المتوقع", "الراوي", "الموضوع", "البداية"];
-  
-  categoryLabels.forEach(label => {
-    const labelDiv = document.createElement("div");
-    labelDiv.textContent = label;
-    labelDiv.style.fontSize = "14px";
-    labelDiv.style.fontWeight = "bold";
-    labelDiv.style.color = "#a97852";
-    labelDiv.style.textAlign = "center";
-    labelsContainer.appendChild(labelDiv);
-  });
-  
-  exportWrapper.appendChild(labelsContainer);
-
-  // Create a container for the cards
-  const cardsContainer = document.createElement("div");
-  cardsContainer.style.display = "flex";
-  cardsContainer.style.flexWrap = "wrap";
-  cardsContainer.style.justifyContent = "center";
-  cardsContainer.style.gap = "10px";
-  cardsContainer.style.marginBottom = "30px";
-  
-  // Add each selected card image
-  let hasCards = false;
-  for (let i = 1; i <= 6; i++) {
-    const imgSrc = document.getElementById("img" + i).src;
-    if (imgSrc && imgSrc.trim() !== "") {
-      hasCards = true;
-      const img = document.createElement("img");
-      img.src = imgSrc;
-      img.style.width = "150px";
-      img.style.maxWidth = "90%";
-      img.style.display = "block";
-      img.style.borderRadius = "6px";
-      cardsContainer.appendChild(img);
-    }
-  }
-  
-  // Only add cards container if there are cards
-  if (hasCards) {
-    exportWrapper.appendChild(cardsContainer);
-  }
-
-  // Add another horizontal line
-  const hr2 = document.createElement("hr");
-  hr2.style.width = "100%";
-  hr2.style.border = "1px solid #a97852";
-  hr2.style.margin = "10px 0 20px";
-  exportWrapper.appendChild(hr2);
-
-  // Add story text
-  const storyText = document.getElementById("storyText").value;
-  
-  const storyHeading = document.createElement("h3");
-  storyHeading.textContent = "قصتي:";
-  storyHeading.style.marginBottom = "15px";
-  storyHeading.style.color = "#a97852";
-  exportWrapper.appendChild(storyHeading);
-  
-  const storyP = document.createElement("div");
-  storyP.style.fontSize = "18px";
-  storyP.style.lineHeight = "1.8";
-  storyP.style.whiteSpace = "pre-wrap";
-  storyP.style.padding = "20px";
-  storyP.style.border = "2px solid #a97852";
-  storyP.style.borderRadius = "8px";
-  storyP.style.minHeight = "200px";
-  storyP.style.backgroundColor = "#f8f3f0";
-  storyP.textContent = storyText || "لم يتم كتابة قصة بعد.";
-  exportWrapper.appendChild(storyP);
-
-  // Add footer
-  const footer = document.createElement("div");
-  footer.style.textAlign = "center";
-  footer.style.marginTop = "30px";
-  footer.style.paddingTop = "15px";
-  footer.style.borderTop = "1px solid #ddd";
-  footer.style.fontSize = "14px";
-  footer.style.color = "#666";
-  
-  const footerText = document.createElement("p");
-  footerText.textContent = "تم إنشاؤها بواسطة مدونة فاطمة";
-  footer.appendChild(footerText);
-  
-  const dateText = document.createElement("p");
-  dateText.textContent = "التاريخ: " + new Date().toLocaleDateString('ar-EG');
-  dateText.style.marginTop = "5px";
-  footer.appendChild(dateText);
-  
-  exportWrapper.appendChild(footer);
-
-  // Append to body temporarily
-  document.body.appendChild(exportWrapper);
-
   try {
-    // Use html2canvas with better configuration
-    html2canvas(exportWrapper, {
+    // Get all the data we need
+    const storyText = document.getElementById("storyText").value;
+    
+    // Collect card images
+    const cardImages = [];
+    for (let i = 1; i <= 6; i++) {
+      const img = document.getElementById(`img${i}`);
+      if (img && img.src && img.src.trim() !== "") {
+        cardImages.push(img.src);
+      }
+    }
+    
+    // Create a visible container (not hidden!)
+    const exportContainer = document.createElement("div");
+    exportContainer.id = "export-for-capture";
+    exportContainer.style.cssText = `
+      position: absolute;
+      left: 50%;
+      top: 50px;
+      transform: translateX(-50%);
+      width: 900px;
+      padding: 30px;
+      background: white;
+      border: 2px solid #a97852;
+      border-radius: 12px;
+      box-sizing: border-box;
+      font-family: 'Tajawal', sans-serif;
+      direction: rtl;
+      text-align: right;
+      z-index: 10000;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    `;
+    
+    // Add content to the container
+    exportContainer.innerHTML = `
+      <div style="text-align: center; margin-bottom: 20px;">
+        <img src="https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/logo-copy.png" 
+             style="width: 150px; height: auto; display: block; margin: 0 auto 10px;">
+        <h2 style="color: #a97852; margin: 0; font-size: 24px;">تمرين الكتابة الجريئة</h2>
+      </div>
+      
+      <hr style="border: 1px solid #a97852; margin: 10px 0 20px;">
+      
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 10px;">
+        ${['التصنيف', 'التسلسل الزمني', 'العنصر غير المتوقع', 'الراوي', 'الموضوع', 'البداية']
+          .slice(0, cardImages.length)
+          .map(label => `<div style="font-size: 14px; font-weight: bold; color: #a97852; text-align: center; width: 150px;">${label}</div>`)
+          .join('')}
+      </div>
+      
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px;">
+        ${cardImages.map(src => 
+          `<img src="${src}" style="width: 150px; height: 150px; object-fit: contain; border-radius: 6px; border: 1px solid #ddd;">`
+        ).join('')}
+      </div>
+      
+      <hr style="border: 1px solid #a97852; margin: 10px 0 20px;">
+      
+      <h3 style="color: #a97852; margin-bottom: 15px; font-size: 20px;">قصتي:</h3>
+      
+      <div style="
+        font-size: 18px;
+        line-height: 1.8;
+        white-space: pre-wrap;
+        padding: 20px;
+        border: 2px solid #a97852;
+        border-radius: 8px;
+        min-height: 200px;
+        background-color: #f8f3f0;
+        text-align: right;
+        direction: rtl;
+      ">
+        ${storyText || "لم يتم كتابة قصة بعد."}
+      </div>
+      
+      <div style="text-align: center; margin-top: 30px; padding-top: 15px; border-top: 1px solid #ddd; color: #666;">
+        <p style="margin: 0;">تم إنشاؤها بواسطة مدونة فاطمة</p>
+        <p style="margin: 5px 0 0;">التاريخ: ${new Date().toLocaleDateString('ar-EG')}</p>
+      </div>
+      
+      <div style="text-align: center; margin-top: 20px;">
+        <button id="closeExport" style="padding: 8px 20px; background: #a97852; color: white; border: none; border-radius: 4px; cursor: pointer;">
+          أغلق هذه النافذة بعد التحميل
+        </button>
+      </div>
+    `;
+    
+    // Add to body and make it visible
+    document.body.appendChild(exportContainer);
+    
+    // Add close button functionality
+    document.getElementById('closeExport').addEventListener('click', function() {
+      document.body.removeChild(exportContainer);
+      saveBtn.textContent = originalText;
+      saveBtn.disabled = false;
+    });
+    
+    // Wait for images to load
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    // Now capture the visible container
+    const canvas = await html2canvas(exportContainer, {
       scale: 2,
       useCORS: true,
       backgroundColor: "#ffffff",
-      logging: false,
-      allowTaint: true
-    }).then(canvas => {
-      const link = document.createElement("a");
-      link.download = "قصتي_" + new Date().toISOString().slice(0,10) + ".png";
-      link.href = canvas.toDataURL("image/png");
-      link.click();
-      document.body.removeChild(exportWrapper);
-    }).catch(error => {
-      console.error("Error generating image:", error);
-      alert("حدث خطأ أثناء إنشاء الصورة. يرجى المحاولة مرة أخرى.");
-      document.body.removeChild(exportWrapper);
+      logging: true,
+      windowWidth: exportContainer.offsetWidth,
+      windowHeight: exportContainer.offsetHeight
     });
+    
+    // Create download link
+    const link = document.createElement("a");
+    link.download = `قصتي_${new Date().toISOString().slice(0,10)}.png`;
+    link.href = canvas.toDataURL("image/png");
+    
+    // Trigger download
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Show success message
+    alert("تم حفظ الصورة بنجاح! يمكنك الآن إغلاق النافذة العلوية.");
+    
   } catch (error) {
     console.error("Error:", error);
-    document.body.removeChild(exportWrapper);
+    alert("حدث خطأ. حاول مرة أخرى.");
+    
+    // Clean up if container exists
+    const existing = document.getElementById('export-for-capture');
+    if (existing) {
+      document.body.removeChild(existing);
+    }
+    
+    saveBtn.textContent = originalText;
+    saveBtn.disabled = false;
   }
 });
 
-// Initialize on page load
-document.addEventListener('DOMContentLoaded', function() {
-  // Make sure savePNGBtn exists
-  const saveBtn = document.getElementById("savePNGBtn");
-  if (saveBtn) {
-    // Event listener is already attached above
-    console.log("Story writer app initialized successfully");
-  }
+// Preload logo for better performance
+window.addEventListener('load', function() {
+  const logo = new Image();
+  logo.src = "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/logo-copy.png";
 });
