@@ -15,7 +15,6 @@
   <h2 class="widgetTitle">تمرين الكتابة الجريئة</h2>
   <hr>
 
-    <!-- Description Section for dummies bc, duh, its so obvious -->
   <div class="description">
     <h3>تمرين الكتابة الإبداعية الجريئة</h3>
     <p>🎯 <strong>الهدف:</strong> هذا التمرين يساعدك على تطوير مهارات الكتابة الإبداعية من خلال اختيار عناصر عشوائية لبناء قصة فريدة.</p>
@@ -28,14 +27,18 @@
       <li>اضغط على <strong>"إعادة تعيين الكل"</strong> لبدء تمرين جديد</li>
     </ol>
     <p>💡 <strong>ملاحظة:</strong> حاول دمج جميع العناصر المختارة في قصة واحدة متماسكة! لكن تذكر أن العنصر غير المتوقع هو إضافة اختيارية، ويمكنك تجاهلها</p>
-</div> 
+  </div> 
 
-    
-  <button class="randAllBtn" onclick="randomizeAll()">اضغط لاختيار الكل</button>
+  <!-- Buttons -->
+  <div class="centerButtons">
+    <button class="randAllBtn" onclick="randomizeAll()">اضغط لاختيار الكل</button>
+  </div>
+
+  <!-- Tarot container -->
   <div id="tarotContainer" class="tarotDeck"></div>
-
   <hr>
 
+  <!-- Categories -->
   <!-- التصنيف -->
   <div class="category">
     <h4>التصنيف</h4>
@@ -89,32 +92,35 @@
     <button onclick="pickRandom(6)">اختيار عشوائي</button>
     <div class="imgContainer"><img class="resultImage" id="img6"></div>
   </div>
-<hr>
-<div class="centerButtons">
-  <button class="doneBtn" onclick="doneAndExport()">تم</button>
+
+  <hr>
+  <div class="centerButtons">
+    <button class="doneBtn" onclick="doneAndExport()">تم</button>
+  </div>
+
+  <!-- Story section -->
+  <div id="storySection" style="display:none; width: 100%; max-width: 900px; text-align: right; margin-top: 20px;">
+    <h3>اكتب قصتك هنا:</h3>
+    <div id="finalRow" style="display:flex; justify-content:center; gap:10px; margin-bottom:15px;"></div>
+    <textarea id="storyText" style="width: 100%; min-height: 200px; font-family: 'Tajawal', sans-serif; font-size: 16px; padding: 10px;"></textarea>
+    <div class="centerButtons" style="margin-top: 10px;">
+      <button id="savePNGBtn">حفظ كصورة</button>
+    </div>
+  </div>
+
+  <hr>
+  <div class="centerButtons">
+    <button class="resetBtn" onclick="resetAll()">إعادة تعيين الكل</button>
+  </div>
+
+  <hr>
+  <p style="text-align:center;">
+    <a href="https://fatthatmablog.wordpress.com" target="_blank">Fatma blog</a> | 
+    <a href="https://storiesbyfatma.wordpress.com" target="_blank">Stories By Fatma</a>
+  </p>
+
 </div>
 
-<div id="storySection" style="display:none; width: 100%; max-width: 900px; text-align: right;">
-  <h3>اكتب قصتك هنا:</h3>
-  <!-- final cards will appear here -->
-  <div id="finalRow" style="display:flex; justify-content:center; gap:10px; margin-bottom:15px;"></div>
-  
-  <textarea id="storyText" style="width: 100%; min-height: 200px; font-family: 'Tajawal', sans-serif; font-size: 16px; padding: 10px;"></textarea>
-  
-  <div class="centerButtons" style="margin-top: 10px;">
-    <button id="savePNGBtn">حفظ كصورة</button>
-  </div>
-</div>
-  <hr>
-  <button class="resetBtn" onclick="resetAll()">إعادة تعيين الكل</button>
-  
-  <hr>
-<p>
-  <a href="https://fatthatmablog.wordpress.com" target="_blank">Fatma blog</a> | 
-  <a href="https://storiesbyfatma.wordpress.com" target="_blank">Stories By Fatma</a>
-</p>
-  
-</div>
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <script src="script.js"></script>
 </body>
