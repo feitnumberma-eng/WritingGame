@@ -221,154 +221,210 @@ function doneAndExport() {
   }
 }
 
-// SIMPLE WORKING VERSION for PNG export
+// =============== NEW CANVAS-BASED EXPORT ===============
 document.getElementById("savePNGBtn").addEventListener("click", async function() {
   const saveBtn = this;
   const originalText = saveBtn.textContent;
-  saveBtn.textContent = "جاري التحميل...";
+  saveBtn.textContent = "جاري إنشاء الصورة...";
   saveBtn.disabled = true;
   
   try {
-    // Get all the data we need
+    // Get story text
     const storyText = document.getElementById("storyText").value;
     
-    // Collect card images
-    const cardImages = [];
+    // Collect selected card URLs
+    const cardUrls = [];
     for (let i = 1; i <= 6; i++) {
       const img = document.getElementById(`img${i}`);
       if (img && img.src && img.src.trim() !== "") {
-        cardImages.push(img.src);
+        cardUrls.push(img.src);
       }
     }
     
-    // Create a visible container (not hidden!)
-    const exportContainer = document.createElement("div");
-    exportContainer.id = "export-for-capture";
-    exportContainer.style.cssText = `
-      position: absolute;
-      left: 50%;
-      top: 50px;
-      transform: translateX(-50%);
-      width: 900px;
-      padding: 30px;
-      background: white;
-      border: 2px solid #a97852;
-      border-radius: 12px;
-      box-sizing: border-box;
-      font-family: 'Tajawal', sans-serif;
-      direction: rtl;
-      text-align: right;
-      z-index: 10000;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    `;
+    // Category labels in Arabic
+    const categoryLabels = ['التصنيف', 'التسلسل الزمني', 'العنصر غير المتوقع', 'الراوي', 'الموضوع', 'البداية'];
     
-    // Add content to the container
-    exportContainer.innerHTML = `
-      <div style="text-align: center; margin-bottom: 20px;">
-        <img src="https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/logo-copy.png" 
-             style="width: 150px; height: auto; display: block; margin: 0 auto 10px;">
-        <h2 style="color: #a97852; margin: 0; font-size: 24px;">تمرين الكتابة الجريئة</h2>
-      </div>
-      
-      <hr style="border: 1px solid #a97852; margin: 10px 0 20px;">
-      
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 10px;">
-        ${['التصنيف', 'التسلسل الزمني', 'العنصر غير المتوقع', 'الراوي', 'الموضوع', 'البداية']
-          .slice(0, cardImages.length)
-          .map(label => `<div style="font-size: 14px; font-weight: bold; color: #a97852; text-align: center; width: 150px;">${label}</div>`)
-          .join('')}
-      </div>
-      
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px;">
-        ${cardImages.map(src => 
-          `<img src="${src}" style="width: 150px; height: 150px; object-fit: contain; border-radius: 6px; border: 1px solid #ddd;">`
-        ).join('')}
-      </div>
-      
-      <hr style="border: 1px solid #a97852; margin: 10px 0 20px;">
-      
-      <h3 style="color: #a97852; margin-bottom: 15px; font-size: 20px;">قصتي:</h3>
-      
-      <div style="
-        font-size: 18px;
-        line-height: 1.8;
-        white-space: pre-wrap;
-        padding: 20px;
-        border: 2px solid #a97852;
-        border-radius: 8px;
-        min-height: 200px;
-        background-color: #f8f3f0;
-        text-align: right;
-        direction: rtl;
-      ">
-        ${storyText || "لم يتم كتابة قصة بعد."}
-      </div>
-      
-      <div style="text-align: center; margin-top: 30px; padding-top: 15px; border-top: 1px solid #ddd; color: #666;">
-        <p style="margin: 0;">تم إنشاؤها بواسطة مدونة فاطمة</p>
-        <p style="margin: 5px 0 0;">التاريخ: ${new Date().toLocaleDateString('ar-EG')}</p>
-      </div>
-      
-      <div style="text-align: center; margin-top: 20px;">
-        <button id="closeExport" style="padding: 8px 20px; background: #a97852; color: white; border: none; border-radius: 4px; cursor: pointer;">
-          أغلق هذه النافذة بعد التحميل
-        </button>
-      </div>
-    `;
+    // Create canvas
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
     
-    // Add to body and make it visible
-    document.body.appendChild(exportContainer);
+    // Set canvas dimensions (A4 size at 150 DPI)
+    canvas.width = 1240;  // ~8.27 inches at 150 DPI
+    canvas.height = 1754; // ~11.69 inches at 150 DPI
     
-    // Add close button functionality
-    document.getElementById('closeExport').addEventListener('click', function() {
-      document.body.removeChild(exportContainer);
-      saveBtn.textContent = originalText;
-      saveBtn.disabled = false;
-    });
+    // Fill background
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
     
-    // Wait for images to load
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    // Load logo image
+    const logoImg = await loadImage('https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/logo-copy.png');
     
-    // Now capture the visible container
-    const canvas = await html2canvas(exportContainer, {
-      scale: 2,
-      useCORS: true,
-      backgroundColor: "#ffffff",
-      logging: true,
-      windowWidth: exportContainer.offsetWidth,
-      windowHeight: exportContainer.offsetHeight
-    });
+    // Draw logo at top center
+    const logoHeight = 80;
+    const logoWidth = (logoImg.width * logoHeight) / logoImg.height;
+    ctx.drawImage(logoImg, (canvas.width - logoWidth) / 2, 50, logoWidth, logoHeight);
     
-    // Create download link
-    const link = document.createElement("a");
+    // Draw title
+    ctx.fillStyle = '#a97852';
+    ctx.font = 'bold 32px "Tajawal", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('تمرين الكتابة الجريئة', canvas.width / 2, 170);
+    
+    // Draw horizontal line
+    ctx.fillStyle = '#a97852';
+    ctx.fillRect(100, 200, canvas.width - 200, 2);
+    
+    let yPosition = 250;
+    
+    // Draw category labels
+    ctx.font = 'bold 18px "Tajawal", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#a97852';
+    
+    for (let i = 0; i < Math.min(cardUrls.length, 6); i++) {
+      const x = 100 + (i % 3) * 340;
+      ctx.fillText(categoryLabels[i], x + 150, yPosition);
+    }
+    
+    yPosition += 30;
+    
+    // Load and draw card images
+    const cardPromises = cardUrls.map(url => loadImage(url));
+    const cardImages = await Promise.all(cardPromises);
+    
+    for (let i = 0; i < cardImages.length; i++) {
+      const cardImg = cardImages[i];
+      const row = Math.floor(i / 3);
+      const col = i % 3;
+      const x = 100 + col * 340;
+      const y = yPosition + row * 160;
+      
+      // Draw card border
+      ctx.fillStyle = '#f0f0f0';
+      ctx.fillRect(x, y, 300, 150);
+      
+      // Draw card image (centered within the card area)
+      const maxWidth = 280;
+      const maxHeight = 130;
+      const scale = Math.min(maxWidth / cardImg.width, maxHeight / cardImg.height);
+      const drawWidth = cardImg.width * scale;
+      const drawHeight = cardImg.height * scale;
+      const drawX = x + (300 - drawWidth) / 2;
+      const drawY = y + (150 - drawHeight) / 2;
+      
+      ctx.drawImage(cardImg, drawX, drawY, drawWidth, drawHeight);
+    }
+    
+    yPosition += (Math.ceil(cardImages.length / 3) * 160) + 50;
+    
+    // Draw horizontal line before story
+    ctx.fillStyle = '#a97852';
+    ctx.fillRect(100, yPosition, canvas.width - 200, 2);
+    yPosition += 30;
+    
+    // Draw story title
+    ctx.font = 'bold 24px "Tajawal", sans-serif';
+    ctx.textAlign = 'right';
+    ctx.fillStyle = '#a97852';
+    ctx.fillText('قصتي:', canvas.width - 100, yPosition);
+    yPosition += 40;
+    
+    // Draw story text with proper Arabic wrapping
+    ctx.font = '20px "Tajawal", sans-serif';
+    ctx.fillStyle = '#333333';
+    ctx.textAlign = 'right';
+    
+    const maxWidth = canvas.width - 200;
+    const lineHeight = 32;
+    const lines = wrapArabicText(ctx, storyText || "لم يتم كتابة قصة بعد.", maxWidth);
+    
+    // Draw story background
+    ctx.fillStyle = '#f8f3f0';
+    ctx.fillRect(100, yPosition - 10, canvas.width - 200, (lines.length * lineHeight) + 40);
+    
+    // Draw story border
+    ctx.strokeStyle = '#a97852';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(100, yPosition - 10, canvas.width - 200, (lines.length * lineHeight) + 40);
+    
+    // Draw story text lines
+    for (let i = 0; i < lines.length; i++) {
+      ctx.fillText(lines[i], canvas.width - 120, yPosition + (i * lineHeight));
+    }
+    
+    yPosition += (lines.length * lineHeight) + 70;
+    
+    // Draw footer
+    ctx.font = '16px "Tajawal", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillStyle = '#666666';
+    ctx.fillText('تم إنشاؤها بواسطة مدونة فاطمة', canvas.width / 2, yPosition);
+    ctx.fillText(`التاريخ: ${new Date().toLocaleDateString('ar-EG')}`, canvas.width / 2, yPosition + 25);
+    
+    // Convert to data URL and download
+    const dataUrl = canvas.toDataURL('image/png');
+    const link = document.createElement('a');
     link.download = `قصتي_${new Date().toISOString().slice(0,10)}.png`;
-    link.href = canvas.toDataURL("image/png");
-    
-    // Trigger download
+    link.href = dataUrl;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
     
-    // Show success message
-    alert("تم حفظ الصورة بنجاح! يمكنك الآن إغلاق النافذة العلوية.");
-    
   } catch (error) {
-    console.error("Error:", error);
-    alert("حدث خطأ. حاول مرة أخرى.");
-    
-    // Clean up if container exists
-    const existing = document.getElementById('export-for-capture');
-    if (existing) {
-      document.body.removeChild(existing);
-    }
-    
+    console.error('Error creating image:', error);
+    alert('حدث خطأ أثناء إنشاء الصورة. يرجى المحاولة مرة أخرى.');
+  } finally {
     saveBtn.textContent = originalText;
     saveBtn.disabled = false;
   }
 });
 
-// Preload logo for better performance
+// Helper function to load images with timeout
+function loadImage(url) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(new Error(`Failed to load image: ${url}`));
+    
+    // Add cache busting to avoid CORS issues
+    img.src = url + (url.includes('?') ? '&' : '?') + 't=' + Date.now();
+    
+    // Timeout after 5 seconds
+    setTimeout(() => reject(new Error('Image load timeout')), 5000);
+  });
+}
+
+// Helper function to wrap Arabic text
+function wrapArabicText(ctx, text, maxWidth) {
+  const words = text.split(' ');
+  const lines = [];
+  let currentLine = '';
+  
+  for (let i = words.length - 1; i >= 0; i--) { // Reverse for Arabic
+    const word = words[i];
+    const testLine = currentLine ? word + ' ' + currentLine : word;
+    const metrics = ctx.measureText(testLine);
+    
+    if (metrics.width > maxWidth && currentLine !== '') {
+      lines.push(currentLine);
+      currentLine = word;
+    } else {
+      currentLine = testLine;
+    }
+  }
+  
+  if (currentLine) {
+    lines.push(currentLine);
+  }
+  
+  return lines;
+}
+
+// Preload logo for faster export
 window.addEventListener('load', function() {
+  // Preload logo
   const logo = new Image();
-  logo.src = "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/logo-copy.png";
+  logo.crossOrigin = 'anonymous';
+  logo.src = 'https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/logo-copy.png';
 });
