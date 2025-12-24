@@ -1,63 +1,63 @@
 const images = {
   1: [
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/01.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/03.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08.png"
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/01.png", alt: "خيال علمي"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02.png", alt: "رعب"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/03.png", alt: "فانتازيا"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04.png", alt: "غموض"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05.png", alt: "رومانسي"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06.png", alt: "تاريخي"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07.png", alt: "مغامرة"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08.png", alt: "كوميدي"}
   ],
   2: [
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/01-1.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02-1.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/03-1.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04-1.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05-1.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06-1.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07-1.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08-1.png"
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/01-1.png", alt: "الزمن الحاضر"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02-1.png", alt: "الماضي البعيد"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/03-1.png", alt: "المستقبل القريب"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04-1.png", alt: "الماضي القريب"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05-1.png", alt: "المستقبل البعيد"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06-1.png", alt: "أزمنة متقاطعة"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07-1.png", alt: "زمن غير محدد"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08-1.png", alt: "زمن متغير"}
   ],
   3: [
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/01-2.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02-2.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/03-2.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04-2.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05-2.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06-2.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07-2.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08-2.png"
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/01-2.png", alt: "حيوان أليف يتكلم"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02-2.png", alt: "رسالة غامضة"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/03-2.png", alt: "اكتشاف مفاجئ"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04-2.png", alt: "طقس غريب"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05-2.png", alt: "حلم غريب"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06-2.png", alt: "زيارة غير متوقعة"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07-2.png", alt: "قوة خارقة"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08-2.png", alt: "كائن غريب"}
   ],
   4: [
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/01-3.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02-3.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/03-3.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04-3.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05-3.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06-3.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07-3.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08-3.png"
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/01-3.png", alt: "البطل/البطلة"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02-3.png", alt: "صديق مقرب"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/03-3.png", alt: "الشرير/الشريرة"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04-3.png", alt: "الغريب"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05-3.png", alt: "الطفل/الطفلة"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06-3.png", alt: "الشخصية التاريخية"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07-3.png", alt: "الحيوان"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08-3.png", alt: "كائن خيالي"}
   ],
   5: [
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02-4.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04-4.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05-4.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06-4.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07-4.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08-4.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/09.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/10.png"
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02-4.png", alt: "الصداقة"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04-4.png", alt: "الحب"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05-4.png", alt: "الخسارة"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06-4.png", alt: "النصر"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07-4.png", alt: "الخيانة"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08-4.png", alt: "الانتقام"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/09.png", alt: "الأسرة"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/10.png", alt: "النمو الشخصي"}
   ],
   6: [
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/01-4.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02-5.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/03-4.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04-5.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05-5.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06-5.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07-5.png",
-    "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08-5.png"
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/01-4.png", alt: "في مكان مظلم"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02-5.png", alt: "خلال عاصفة"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/03-4.png", alt: "في المدينة"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04-5.png", alt: "في الطبيعة"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05-5.png", alt: "في الحلم"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06-5.png", alt: "في الماضي"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07-5.png", alt: "في المستقبل"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08-5.png", alt: "في مكان غير مألوف"}
   ]
 };
 
@@ -65,13 +65,14 @@ const images = {
 function pickRandom(category) {
   const arr = images[category];
   const img = document.getElementById("img" + category);
-  const url = arr[Math.floor(Math.random() * arr.length)];
+  const selected = arr[Math.floor(Math.random() * arr.length)];
 
   img.classList.remove("show");
   img.style.display = "none";
 
   setTimeout(() => {
-    img.src = url;
+    img.src = selected.src;
+    img.alt = selected.alt;
     img.style.display = "block";
     img.classList.add("show");
   }, 50);
@@ -84,19 +85,21 @@ function openManualPicker(category) {
   const picker = document.getElementById("picker" + category);
   picker.innerHTML = "";
 
-  images[category].forEach(url => {
+  images[category].forEach(item => {
     const card = document.createElement("img");
-    card.src = url;
-    card.onclick = () => selectManual(category, url);
+    card.src = item.src;
+    card.alt = item.alt;
+    card.onclick = () => selectManual(category, item);
     picker.appendChild(card);
   });
 
   picker.style.display = "grid";
 }
 
-function selectManual(category, url) {
+function selectManual(category, item) {
   const img = document.getElementById("img" + category);
-  img.src = url;
+  img.src = item.src;
+  img.alt = item.alt;
   img.style.display = "block";
   img.classList.add("show");
   closePicker(category);
@@ -126,7 +129,7 @@ function randomizeAll() {
   // Select random images for each category
   for (let i = 1; i <= 6; i++) {
     const arr = images[i];
-    const randomUrl = arr[Math.floor(Math.random() * arr.length)];
+    const selected = arr[Math.floor(Math.random() * arr.length)];
     
     // Update the main image in the category
     const mainImg = document.getElementById("img" + i);
@@ -134,14 +137,16 @@ function randomizeAll() {
     mainImg.style.display = "none";
     
     setTimeout(() => {
-      mainImg.src = randomUrl;
+      mainImg.src = selected.src;
+      mainImg.alt = selected.alt;
       mainImg.style.display = "block";
       mainImg.classList.add("show");
     }, 50);
     
     // Create image for tarot container
     const tarotImg = document.createElement("img");
-    tarotImg.src = randomUrl;
+    tarotImg.src = selected.src;
+    tarotImg.alt = selected.alt;
     tarotImg.style.width = "150px";
     tarotImg.style.maxWidth = "90%";
     tarotImg.style.borderRadius = "6px";
@@ -176,6 +181,7 @@ function resetAll() {
     const img = document.getElementById("img" + i);
     if (img) {
       img.src = "";
+      img.alt = "";
       img.style.display = "none";
       img.classList.remove("show");
     }
@@ -213,6 +219,7 @@ function doneAndExport() {
     if (imgSrc && imgSrc.trim() !== "") {
       const img = document.createElement("img");
       img.src = imgSrc;
+      img.alt = document.getElementById("img" + i).alt;
       img.style.width = "150px";
       img.style.maxWidth = "90%";
       img.style.display = "block";
@@ -221,210 +228,217 @@ function doneAndExport() {
   }
 }
 
-// =============== NEW CANVAS-BASED EXPORT ===============
-document.getElementById("savePNGBtn").addEventListener("click", async function() {
+// Export story as PNG - FIXED VERSION
+document.getElementById("savePNGBtn").addEventListener("click", function() {
   const saveBtn = this;
   const originalText = saveBtn.textContent;
-  saveBtn.textContent = "جاري إنشاء الصورة...";
+  saveBtn.textContent = "جاري التحميل...";
   saveBtn.disabled = true;
   
-  try {
-    // Get story text
-    const storyText = document.getElementById("storyText").value;
-    
-    // Collect selected card URLs
-    const cardUrls = [];
-    for (let i = 1; i <= 6; i++) {
-      const img = document.getElementById(`img${i}`);
-      if (img && img.src && img.src.trim() !== "") {
-        cardUrls.push(img.src);
-      }
+  // Get story text
+  const storyText = document.getElementById("storyText").value;
+  
+  // Collect selected cards with their alt text
+  const selectedCards = [];
+  for (let i = 1; i <= 6; i++) {
+    const img = document.getElementById("img" + i);
+    if (img && img.src && img.src.trim() !== "") {
+      selectedCards.push({
+        alt: img.alt || `البطاقة ${i}`,
+        category: i
+      });
     }
+  }
+  
+  // Category labels in Arabic
+  const categoryLabels = ['التصنيف', 'التسلسل الزمني', 'العنصر غير المتوقع', 'الراوي', 'الموضوع', 'البداية'];
+  
+  // Create export wrapper
+  const exportWrapper = document.createElement("div");
+  exportWrapper.style.width = "900px";
+  exportWrapper.style.padding = "30px";
+  exportWrapper.style.background = "#fff";
+  exportWrapper.style.fontFamily = "'Tajawal', sans-serif";
+  exportWrapper.style.color = "#333";
+  exportWrapper.style.direction = "rtl";
+  exportWrapper.style.textAlign = "right";
+  exportWrapper.style.border = "2px solid #a97852";
+  exportWrapper.style.borderRadius = "12px";
+  exportWrapper.style.boxSizing = "border-box";
+  
+  // Add logo
+  const logo = document.createElement("img");
+  logo.src = "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/logo-copy.png";
+  logo.style.width = "150px";
+  logo.style.height = "auto";
+  logo.style.display = "block";
+  logo.style.margin = "0 auto 15px";
+  exportWrapper.appendChild(logo);
+  
+  // Add title
+  const title = document.createElement("h2");
+  title.textContent = "تمرين الكتابة الجريئة";
+  title.style.textAlign = "center";
+  title.style.marginBottom = "10px";
+  title.style.color = "#a97852";
+  title.style.fontSize = "24px";
+  exportWrapper.appendChild(title);
+  
+  // Add horizontal line
+  const hr1 = document.createElement("hr");
+  hr1.style.width = "100%";
+  hr1.style.border = "1px solid #a97852";
+  hr1.style.margin = "10px 0 20px";
+  exportWrapper.appendChild(hr1);
+  
+  // Create container for category labels
+  const labelsContainer = document.createElement("div");
+  labelsContainer.style.display = "flex";
+  labelsContainer.style.flexWrap = "wrap";
+  labelsContainer.style.justifyContent = "center";
+  labelsContainer.style.gap = "10px";
+  labelsContainer.style.marginBottom = "10px";
+  
+  // Create container for card text (alt text)
+  const cardsContainer = document.createElement("div");
+  cardsContainer.style.display = "flex";
+  cardsContainer.style.flexWrap = "wrap";
+  cardsContainer.style.justifyContent = "center";
+  cardsContainer.style.gap = "10px";
+  cardsContainer.style.marginBottom = "30px";
+  
+  // Add category labels and card text
+  selectedCards.forEach((card, index) => {
+    // Add label
+    const labelDiv = document.createElement("div");
+    labelDiv.textContent = categoryLabels[card.category - 1];
+    labelDiv.style.fontSize = "14px";
+    labelDiv.style.fontWeight = "bold";
+    labelDiv.style.color = "#a97852";
+    labelDiv.style.textAlign = "center";
+    labelDiv.style.width = "150px";
+    labelsContainer.appendChild(labelDiv);
     
-    // Category labels in Arabic
-    const categoryLabels = ['التصنيف', 'التسلسل الزمني', 'العنصر غير المتوقع', 'الراوي', 'الموضوع', 'البداية'];
+    // Add card text box (using alt text)
+    const cardTextDiv = document.createElement("div");
+    cardTextDiv.textContent = card.alt;
+    cardTextDiv.style.width = "150px";
+    cardTextDiv.style.height = "150px";
+    cardTextDiv.style.display = "flex";
+    cardTextDiv.style.alignItems = "center";
+    cardTextDiv.style.justifyContent = "center";
+    cardTextDiv.style.textAlign = "center";
+    cardTextDiv.style.padding = "10px";
+    cardTextDiv.style.border = "2px solid #a97852";
+    cardTextDiv.style.borderRadius = "8px";
+    cardTextDiv.style.backgroundColor = "#f8f3f0";
+    cardTextDiv.style.fontSize = "16px";
+    cardTextDiv.style.fontWeight = "500";
+    cardTextDiv.style.color = "#333";
+    cardTextDiv.style.boxSizing = "border-box";
+    cardTextDiv.style.overflow = "hidden";
+    cardTextDiv.style.wordWrap = "break-word";
+    cardsContainer.appendChild(cardTextDiv);
+  });
+  
+  exportWrapper.appendChild(labelsContainer);
+  exportWrapper.appendChild(cardsContainer);
+  
+  // Add another horizontal line
+  const hr2 = document.createElement("hr");
+  hr2.style.width = "100%";
+  hr2.style.border = "1px solid #a97852";
+  hr2.style.margin = "10px 0 20px";
+  exportWrapper.appendChild(hr2);
+  
+  // Add story title
+  const storyTitle = document.createElement("h3");
+  storyTitle.textContent = "قصتي:";
+  storyTitle.style.color = "#a97852";
+  storyTitle.style.marginBottom = "15px";
+  storyTitle.style.fontSize = "20px";
+  exportWrapper.appendChild(storyTitle);
+  
+  // Add story text - USING textContent (not innerHTML) for proper Arabic
+  const storyDiv = document.createElement("div");
+  storyDiv.textContent = storyText || "لم يتم كتابة قصة بعد.";
+  storyDiv.style.fontFamily = "'Tajawal', sans-serif";
+  storyDiv.style.fontSize = "18px";
+  storyDiv.style.lineHeight = "1.8";
+  storyDiv.style.whiteSpace = "pre-wrap";
+  storyDiv.style.padding = "20px";
+  storyDiv.style.border = "2px solid #a97852";
+  storyDiv.style.borderRadius = "8px";
+  storyDiv.style.minHeight = "200px";
+  storyDiv.style.backgroundColor = "#f8f3f0";
+  storyDiv.style.textAlign = "right";
+  storyDiv.style.direction = "rtl";
+  exportWrapper.appendChild(storyDiv);
+  
+  // Add footer
+  const footer = document.createElement("div");
+  footer.style.textAlign = "center";
+  footer.style.marginTop = "30px";
+  footer.style.paddingTop = "15px";
+  footer.style.borderTop = "1px solid #ddd";
+  footer.style.color = "#666";
+  
+  const footerText = document.createElement("p");
+  footerText.textContent = "تم إنشاؤها بواسطة مدونة فاطمة";
+  footerText.style.margin = "0";
+  footer.appendChild(footerText);
+  
+  const dateText = document.createElement("p");
+  dateText.textContent = "التاريخ: " + new Date().toLocaleDateString('ar-EG');
+  dateText.style.margin = "5px 0 0";
+  footer.appendChild(dateText);
+  
+  exportWrapper.appendChild(footer);
+  
+  // Append to body
+  document.body.appendChild(exportWrapper);
+  
+  // Use html2canvas with proper options
+  html2canvas(exportWrapper, {
+    scale: 2,
+    useCORS: true,
+    backgroundColor: "#ffffff",
+    logging: false
+  }).then(function(canvas) {
+    // Create download link
+    const link = document.createElement("a");
+    link.download = "قصتي_" + new Date().toISOString().slice(0,10) + ".png";
+    link.href = canvas.toDataURL("image/png");
     
-    // Create canvas
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    
-    // Set canvas dimensions (A4 size at 150 DPI)
-    canvas.width = 1240;  // ~8.27 inches at 150 DPI
-    canvas.height = 1754; // ~11.69 inches at 150 DPI
-    
-    // Fill background
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
-    // Load logo image
-    const logoImg = await loadImage('https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/logo-copy.png');
-    
-    // Draw logo at top center
-    const logoHeight = 80;
-    const logoWidth = (logoImg.width * logoHeight) / logoImg.height;
-    ctx.drawImage(logoImg, (canvas.width - logoWidth) / 2, 50, logoWidth, logoHeight);
-    
-    // Draw title
-    ctx.fillStyle = '#a97852';
-    ctx.font = 'bold 32px "Tajawal", sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillText('تمرين الكتابة الجريئة', canvas.width / 2, 170);
-    
-    // Draw horizontal line
-    ctx.fillStyle = '#a97852';
-    ctx.fillRect(100, 200, canvas.width - 200, 2);
-    
-    let yPosition = 250;
-    
-    // Draw category labels
-    ctx.font = 'bold 18px "Tajawal", sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillStyle = '#a97852';
-    
-    for (let i = 0; i < Math.min(cardUrls.length, 6); i++) {
-      const x = 100 + (i % 3) * 340;
-      ctx.fillText(categoryLabels[i], x + 150, yPosition);
-    }
-    
-    yPosition += 30;
-    
-    // Load and draw card images
-    const cardPromises = cardUrls.map(url => loadImage(url));
-    const cardImages = await Promise.all(cardPromises);
-    
-    for (let i = 0; i < cardImages.length; i++) {
-      const cardImg = cardImages[i];
-      const row = Math.floor(i / 3);
-      const col = i % 3;
-      const x = 100 + col * 340;
-      const y = yPosition + row * 160;
-      
-      // Draw card border
-      ctx.fillStyle = '#f0f0f0';
-      ctx.fillRect(x, y, 300, 150);
-      
-      // Draw card image (centered within the card area)
-      const maxWidth = 280;
-      const maxHeight = 130;
-      const scale = Math.min(maxWidth / cardImg.width, maxHeight / cardImg.height);
-      const drawWidth = cardImg.width * scale;
-      const drawHeight = cardImg.height * scale;
-      const drawX = x + (300 - drawWidth) / 2;
-      const drawY = y + (150 - drawHeight) / 2;
-      
-      ctx.drawImage(cardImg, drawX, drawY, drawWidth, drawHeight);
-    }
-    
-    yPosition += (Math.ceil(cardImages.length / 3) * 160) + 50;
-    
-    // Draw horizontal line before story
-    ctx.fillStyle = '#a97852';
-    ctx.fillRect(100, yPosition, canvas.width - 200, 2);
-    yPosition += 30;
-    
-    // Draw story title
-    ctx.font = 'bold 24px "Tajawal", sans-serif';
-    ctx.textAlign = 'right';
-    ctx.fillStyle = '#a97852';
-    ctx.fillText('قصتي:', canvas.width - 100, yPosition);
-    yPosition += 40;
-    
-    // Draw story text with proper Arabic wrapping
-    ctx.font = '20px "Tajawal", sans-serif';
-    ctx.fillStyle = '#333333';
-    ctx.textAlign = 'right';
-    
-    const maxWidth = canvas.width - 200;
-    const lineHeight = 32;
-    const lines = wrapArabicText(ctx, storyText || "لم يتم كتابة قصة بعد.", maxWidth);
-    
-    // Draw story background
-    ctx.fillStyle = '#f8f3f0';
-    ctx.fillRect(100, yPosition - 10, canvas.width - 200, (lines.length * lineHeight) + 40);
-    
-    // Draw story border
-    ctx.strokeStyle = '#a97852';
-    ctx.lineWidth = 2;
-    ctx.strokeRect(100, yPosition - 10, canvas.width - 200, (lines.length * lineHeight) + 40);
-    
-    // Draw story text lines
-    for (let i = 0; i < lines.length; i++) {
-      ctx.fillText(lines[i], canvas.width - 120, yPosition + (i * lineHeight));
-    }
-    
-    yPosition += (lines.length * lineHeight) + 70;
-    
-    // Draw footer
-    ctx.font = '16px "Tajawal", sans-serif';
-    ctx.textAlign = 'center';
-    ctx.fillStyle = '#666666';
-    ctx.fillText('تم إنشاؤها بواسطة مدونة فاطمة', canvas.width / 2, yPosition);
-    ctx.fillText(`التاريخ: ${new Date().toLocaleDateString('ar-EG')}`, canvas.width / 2, yPosition + 25);
-    
-    // Convert to data URL and download
-    const dataUrl = canvas.toDataURL('image/png');
-    const link = document.createElement('a');
-    link.download = `قصتي_${new Date().toISOString().slice(0,10)}.png`;
-    link.href = dataUrl;
+    // Trigger download
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
     
-  } catch (error) {
-    console.error('Error creating image:', error);
-    alert('حدث خطأ أثناء إنشاء الصورة. يرجى المحاولة مرة أخرى.');
-  } finally {
+    // Remove wrapper
+    document.body.removeChild(exportWrapper);
+    
+    // Restore button
     saveBtn.textContent = originalText;
     saveBtn.disabled = false;
-  }
+    
+  }).catch(function(error) {
+    console.error("Error generating image:", error);
+    alert("حدث خطأ أثناء إنشاء الصورة. يرجى المحاولة مرة أخرى.");
+    
+    // Remove wrapper if it exists
+    if (exportWrapper.parentNode) {
+      document.body.removeChild(exportWrapper);
+    }
+    
+    // Restore button
+    saveBtn.textContent = originalText;
+    saveBtn.disabled = false;
+  });
 });
 
-// Helper function to load images with timeout
-function loadImage(url) {
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    img.crossOrigin = 'anonymous';
-    img.onload = () => resolve(img);
-    img.onerror = () => reject(new Error(`Failed to load image: ${url}`));
-    
-    // Add cache busting to avoid CORS issues
-    img.src = url + (url.includes('?') ? '&' : '?') + 't=' + Date.now();
-    
-    // Timeout after 5 seconds
-    setTimeout(() => reject(new Error('Image load timeout')), 5000);
-  });
-}
-
-// Helper function to wrap Arabic text
-function wrapArabicText(ctx, text, maxWidth) {
-  const words = text.split(' ');
-  const lines = [];
-  let currentLine = '';
-  
-  for (let i = words.length - 1; i >= 0; i--) { // Reverse for Arabic
-    const word = words[i];
-    const testLine = currentLine ? word + ' ' + currentLine : word;
-    const metrics = ctx.measureText(testLine);
-    
-    if (metrics.width > maxWidth && currentLine !== '') {
-      lines.push(currentLine);
-      currentLine = word;
-    } else {
-      currentLine = testLine;
-    }
-  }
-  
-  if (currentLine) {
-    lines.push(currentLine);
-  }
-  
-  return lines;
-}
-
-// Preload logo for faster export
+// Preload logo for better performance
 window.addEventListener('load', function() {
-  // Preload logo
   const logo = new Image();
-  logo.crossOrigin = 'anonymous';
-  logo.src = 'https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/logo-copy.png';
+  logo.src = "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/logo-copy.png";
 });
