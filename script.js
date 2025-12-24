@@ -94,16 +94,60 @@ function randomizeAll() {
 
 /* Reset all images bc lets be hosnst we're gonna hate what we get at some point */
 function resetAll() {
-  // reset single categories
   for (let i = 1; i <= 6; i++) {
     const img = document.getElementById("img" + i);
-    img.src = "";
-    img.style.display = "none";
-    img.classList.remove("show");
+    if (img) {
+      img.src = "";
+      img.style.display = "none";
+      img.classList.remove("show");
+    }
+
+    const picker = document.getElementById("picker" + i);
+    if (picker) {
+      picker.innerHTML = "";
+      picker.style.display = "none";
+    }
   }
+
+  const tarotContainer = document.getElementById("tarotContainer");
+  tarotContainer.innerHTML = "";
+  tarotContainer.style.display = "none";
+}
 
   // reset tarot container
   const tarotContainer = document.getElementById("tarotContainer");
   tarotContainer.innerHTML = "";
   tarotContainer.style.display = "none";
 }
+
+/*manual picker stuff*/
+function openManualPicker(category) {
+  const picker = document.getElementById("picker" + category);
+  picker.innerHTML = "";
+
+  images[category].forEach(url => {
+    const img = document.createElement("img");
+    img.src = url;
+    img.onclick = () => selectManualCard(category, url);
+    picker.appendChild(img);
+  });
+
+  picker.style.display = "grid";
+}
+
+function selectManualCard(category, url) {
+  const img = document.getElementById("img" + category);
+  const picker = document.getElementById("picker" + category);
+
+  img.classList.remove("show");
+  img.style.display = "none";
+
+  setTimeout(() => {
+    img.src = url;
+    img.style.display = "block";
+    img.classList.add("show");
+  }, 50);
+
+  picker.style.display = "none";
+}
+
