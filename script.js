@@ -56,43 +56,71 @@ const images = {
 };
 
 /* da code to make em pick one random card for a category */
-function pickRandom(category) {
-  const arr = images[category];
-  const randomURL = arr[Math.floor(Math.random() * arr.length)];
+const images = {
+  1: [...],
+  2: [...],
+  3: [...],
+  4: [...],
+  5: [...],
+  6: [...]
+};
 
+function pickRandom(category) {
   const img = document.getElementById("img" + category);
+  const arr = images[category];
+  const url = arr[Math.floor(Math.random() * arr.length)];
+
   img.classList.remove("show");
   img.style.display = "none";
 
   setTimeout(() => {
-    img.src = randomURL;
+    img.src = url;
     img.style.display = "block";
     img.classList.add("show");
   }, 50);
+
+  closePicker(category);
 }
 
-/* da code for randomize all categories into tarot deck layout */
+function openManualPicker(category) {
+  const picker = document.getElementById("picker" + category);
+  picker.innerHTML = "";
+
+  images[category].forEach(url => {
+    const img = document.createElement("img");
+    img.src = url;
+    img.onclick = () => selectManual(category, url);
+    picker.appendChild(img);
+  });
+
+  picker.style.display = "grid";
+}
+
+function selectManual(category, url) {
+  const img = document.getElementById("img" + category);
+  img.src = url;
+  img.style.display = "block";
+  img.classList.add("show");
+  closePicker(category);
+}
+
+function closePicker(category) {
+  const picker = document.getElementById("picker" + category);
+  if (picker) picker.style.display = "none";
+}
+
 function randomizeAll() {
-  const tarotContainer = document.getElementById("tarotContainer");
-  tarotContainer.innerHTML = ""; // clear previous
-  tarotContainer.style.display = "flex";
+  const tarot = document.getElementById("tarotContainer");
+  tarot.innerHTML = "";
+  tarot.style.display = "flex";
 
   for (let i = 1; i <= 6; i++) {
-    const arr = images[i];
-    const randomURL = arr[Math.floor(Math.random() * arr.length)];
-
     const img = document.createElement("img");
-    img.src = randomURL;
-    tarotContainer.appendChild(img);
-
-    // animate these mfs
-    setTimeout(() => {
-      img.classList.add("show");
-    }, 50);
+    img.src = images[i][Math.floor(Math.random() * images[i].length)];
+    tarot.appendChild(img);
   }
 }
 
-/* Reset all images bc lets be hosnst we're gonna hate what we get at some point */
 function resetAll() {
   for (let i = 1; i <= 6; i++) {
     const img = document.getElementById("img" + i);
@@ -101,53 +129,10 @@ function resetAll() {
       img.style.display = "none";
       img.classList.remove("show");
     }
-
-    const picker = document.getElementById("picker" + i);
-    if (picker) {
-      picker.innerHTML = "";
-      picker.style.display = "none";
-    }
+    closePicker(i);
   }
 
-  const tarotContainer = document.getElementById("tarotContainer");
-  tarotContainer.innerHTML = "";
-  tarotContainer.style.display = "none";
+  const tarot = document.getElementById("tarotContainer");
+  tarot.innerHTML = "";
+  tarot.style.display = "none";
 }
-
-  // reset tarot container
-  const tarotContainer = document.getElementById("tarotContainer");
-  tarotContainer.innerHTML = "";
-  tarotContainer.style.display = "none";
-}
-
-/*manual picker stuff*/
-function openManualPicker(category) {
-  const picker = document.getElementById("picker" + category);
-  picker.innerHTML = "";
-
-  images[category].forEach(url => {
-    const img = document.createElement("img");
-    img.src = url;
-    img.onclick = () => selectManualCard(category, url);
-    picker.appendChild(img);
-  });
-
-  picker.style.display = "grid";
-}
-
-function selectManualCard(category, url) {
-  const img = document.getElementById("img" + category);
-  const picker = document.getElementById("picker" + category);
-
-  img.classList.remove("show");
-  img.style.display = "none";
-
-  setTimeout(() => {
-    img.src = url;
-    img.style.display = "block";
-    img.classList.add("show");
-  }, 50);
-
-  picker.style.display = "none";
-}
-
