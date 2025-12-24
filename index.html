@@ -1,107 +1,97 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تمرين الكتابة الإبداعية</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تمرين الكتابة الإبداعية</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div id="cardApp">      
-     <img src="https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/logo-copy.png" alt="Logo" class="topLogo">
 
-      <!-- main page title, people will see this -->
-      <h2 class="widgetTitle">تمرين الكتابة الجريئة</h2>
-      <hr>
-  <!-- Description Section for dummies bc, duh, its so obvious -->
+<body>
+<div id="cardApp">
+
+  <img src="https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/logo-copy.png" alt="Logo" class="topLogo">
+
+  <h2 class="widgetTitle">تمرين الكتابة الجريئة</h2>
+  <hr>
+
   <div class="description">
     <h3>تمرين الكتابة الإبداعية الجريئة</h3>
-    <p>🎯 <strong>الهدف:</strong> هذا التمرين يساعدك على تطوير مهارات الكتابة الإبداعية من خلال اختيار عناصر عشوائية لبناء قصة فريدة.</p>
+    <p>🎯 <strong>الهدف:</strong> هذا التمرين يساعدك على تطوير مهارات الكتابة الإبداعية.</p>
     <p>📝 <strong>طريقة الاستخدام:</strong></p>
     <ol>
-      <li>اضغط على الأزرار الفردية تحت كل فئة لاختيار عناصر عشوائية</li>
-      <li>أو استخدم زر <strong>"اضغط لاختيار الكل"</strong> لملء جميع الفئات مرة واحدة</li>
-      <li>استخدم العناصر المختارة كإلهام لكتابة قصة إبداعية</li>
-      <li>اضغط على <strong>"إعادة تعيين الكل"</strong> لبدء تمرين جديد</li>
+      <li>اختر العناصر عشوائياً أو يدوياً</li>
+      <li>استخدم النتائج لكتابة قصة واحدة</li>
+      <li>أعد التعيين للمحاولة من جديد</li>
     </ol>
-    <p>💡 <strong>ملاحظة:</strong> حاول دمج جميع العناصر المختارة في قصة واحدة متماسكة! لكن تذكر أن العنصر غير المتوقع هو إضافة اختيارية، ويمكنك تجاهلها</p>
-  </div>
-      <!-- press to Randomize ALLLLLL at oncee -->
-      <button class="randAllBtn" onclick="randomizeAll()">اضغط لاختيار الكل</button>
-
-      <!-- the Container where ma lovely tarot-style cards appeaarrr (Randomize All results hehe) -->
-      <div id="tarotContainer" class="tarotDeck"></div>
-
-      <!-- Break line now AFTER tarot cards -->
-      <hr>
-
-      <!-- Single Category Buttons -->
-      <div class="category" id="cat1">
-  <div class="choiceButtons">
-    <button onclick="pickRandom(1)">اختيار عشوائي</button>
-    <button onclick="openManualPicker(1)">اختيار يدوي</button>
   </div>
 
-  <div class="imgContainer">
-    <img class="resultImage" id="img1">
-  </div>
+  <button class="randAllBtn" onclick="randomizeAll()">اضغط لاختيار الكل</button>
 
-  <div class="manualPicker" id="picker1"></div>
-</div>
+  <div id="tarotContainer" class="tarotDeck"></div>
 
-      <div class="category" id="cat2">
-        <button onclick="pickRandom(2)">التسلسل الزمني</button>
-        <div class="imgContainer"><img class="resultImage" id="img2"></div>
-      </div>
+  <hr>
 
-      <div class="category" id="cat3">
-        <button onclick="pickRandom(3)">العنصر غير المتوقع</button>
-        <div class="imgContainer"><img class="resultImage" id="img3"></div>
-      </div>
-
-      <div class="category" id="cat4">
-  <div class="choiceButtons">
-    <button onclick="pickRandom(4)">اختيار عشوائي</button>
-    <button onclick="openManualPicker(4)">اختيار يدوي</button>
-  </div>
-
-  <div class="imgContainer">
-    <img class="resultImage" id="img4">
-  </div>
-
-  <div class="manualPicker" id="picker4"></div>
-</div>
-
-      <div class="category" id="cat5">
-  <div class="choiceButtons">
-    <button onclick="pickRandom(5)">اختيار عشوائي</button>
-    <button onclick="openManualPicker(5)">اختيار يدوي</button>
-  </div>
-
-  <div class="imgContainer">
-    <img class="resultImage" id="img5">
-  </div>
-
-  <div class="manualPicker" id="picker5"></div>
-</div>
-      <div class="category" id="cat6">
-        <button onclick="pickRandom(6)">البداية</button>
-        <div class="imgContainer"><img class="resultImage" id="img6"></div>
-      </div>
-
-     <!-- Break line AFTER the cards so the section looks cleanahhh-->
-      <hr>
-      
-      <!-- Reset All button at the end bc yeah we might hate what we get -->
-      <button class="resetBtn" onclick="resetAll()">إعادة تعيين الكل</button>
-      <hr>
-
-<p>
-  <a href="https://fatthatmablog.wordpress.com" target="_blank">Fatma blog</a> | 
-  <a href="https://storiesbyfatma.wordpress.com" target="_blank">Stories By Fatma</a>
-</p>
+  <!-- التصنيف -->
+  <div class="category">
+    <h4>التصنيف</h4>
+    <div class="choiceRow">
+      <button onclick="pickRandom(1)">اختيار عشوائي</button>
+      <button onclick="openManualPicker(1)">اختيار يدوي</button>
     </div>
+    <div class="imgContainer"><img class="resultImage" id="img1"></div>
+    <div class="manualPicker" id="picker1"></div>
+  </div>
 
-    <script src="script.js"></script>
+  <!-- التسلسل الزمني -->
+  <div class="category">
+    <h4>التسلسل الزمني</h4>
+    <button onclick="pickRandom(2)">اختيار عشوائي</button>
+    <div class="imgContainer"><img class="resultImage" id="img2"></div>
+  </div>
+
+  <!-- العنصر غير المتوقع -->
+  <div class="category">
+    <h4>العنصر غير المتوقع</h4>
+    <button onclick="pickRandom(3)">اختيار عشوائي</button>
+    <div class="imgContainer"><img class="resultImage" id="img3"></div>
+  </div>
+
+  <!-- الراوي -->
+  <div class="category">
+    <h4>الراوي</h4>
+    <div class="choiceRow">
+      <button onclick="pickRandom(4)">اختيار عشوائي</button>
+      <button onclick="openManualPicker(4)">اختيار يدوي</button>
+    </div>
+    <div class="imgContainer"><img class="resultImage" id="img4"></div>
+    <div class="manualPicker" id="picker4"></div>
+  </div>
+
+  <!-- الموضوع -->
+  <div class="category">
+    <h4>الموضوع</h4>
+    <div class="choiceRow">
+      <button onclick="pickRandom(5)">اختيار عشوائي</button>
+      <button onclick="openManualPicker(5)">اختيار يدوي</button>
+    </div>
+    <div class="imgContainer"><img class="resultImage" id="img5"></div>
+    <div class="manualPicker" id="picker5"></div>
+  </div>
+
+  <!-- البداية -->
+  <div class="category">
+    <h4>البداية</h4>
+    <button onclick="pickRandom(6)">اختيار عشوائي</button>
+    <div class="imgContainer"><img class="resultImage" id="img6"></div>
+  </div>
+
+  <hr>
+  <button class="resetBtn" onclick="resetAll()">إعادة تعيين الكل</button>
+  <hr>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
