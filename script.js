@@ -416,7 +416,7 @@ document.getElementById("savePNGBtn").addEventListener("click", function() {
   footer.style.fontSize = "14px";
   
   const footerText = document.createElement("p");
-  footerText.textContent = "تم إنشاؤها بواسطة مدونة فاطمة";
+  footerText.textContent = "برمجة وتصميم فاطمة باعرام";
   footerText.style.margin = "0";
   footer.appendChild(footerText);
   
