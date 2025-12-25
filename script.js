@@ -1,63 +1,63 @@
 const images = {
   1: [
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/01.png", alt: "خيال علمي"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02.png", alt: "رعب"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/03.png", alt: "فانتازيا"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04.png", alt: "غموض"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05.png", alt: "رومانسي"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06.png", alt: "تاريخي"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07.png", alt: "مغامرة"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08.png", alt: "كوميدي"}
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/01.png", alt: "واقعي / اجتماعي"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02.png", alt: "خيالي / فنتازي"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/03.png", alt: "عاطفي / رومانسي"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04.png", alt: "تاريخي"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05.png", alt: "الخيال العلمي"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06.png", alt: "الفلسفي / الوجودي"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07.png", alt: "الساخر / الكوميدي"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08.png", alt: "الغموض / الرعب"}
   ],
   2: [
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/01-1.png", alt: "الزمن الحاضر"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02-1.png", alt: "الماضي البعيد"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/03-1.png", alt: "المستقبل القريب"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04-1.png", alt: "الماضي القريب"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05-1.png", alt: "المستقبل البعيد"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06-1.png", alt: "أزمنة متقاطعة"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07-1.png", alt: "زمن غير محدد"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08-1.png", alt: "زمن متغير"}
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/01-1.png", alt: "تسلسل خطي"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02-1.png", alt: "البداية من الوسط"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/03-1.png", alt: "البداية من النهاية"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04-1.png", alt: "الأثر الرجعي"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05-1.png", alt: "الاستباق"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06-1.png", alt: "الزمن الدائري"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07-1.png", alt: "الأزمنة المتوازية"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08-1.png", alt: "الزمن الداخلي"}
   ],
   3: [
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/01-2.png", alt: "حيوان أليف يتكلم"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02-2.png", alt: "رسالة غامضة"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/03-2.png", alt: "اكتشاف مفاجئ"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04-2.png", alt: "طقس غريب"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05-2.png", alt: "حلم غريب"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06-2.png", alt: "زيارة غير متوقعة"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07-2.png", alt: "قوة خارقة"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08-2.png", alt: "كائن غريب"}
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/01-2.png", alt: "الراوي غير موثوق"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02-2.png", alt: "النهاية معلقة"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/03-2.png", alt: "حلم أو هلوسة"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04-2.png", alt: "الأدوار تتبدل"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05-2.png", alt: "البطل يموت"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06-2.png", alt: "الكشف متأخر"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07-2.png", alt: "البطل هو قط"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08-2.png", alt: "حدث ما يتكرر"}
   ],
   4: [
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/01-3.png", alt: "البطل/البطلة"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02-3.png", alt: "صديق مقرب"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/03-3.png", alt: "الشرير/الشريرة"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04-3.png", alt: "الغريب"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05-3.png", alt: "الطفل/الطفلة"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06-3.png", alt: "الشخصية التاريخية"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07-3.png", alt: "الحيوان"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08-3.png", alt: "كائن خيالي"}
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/01-3.png", alt: "الراوي المتكلم (الأنا)"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02-3.png", alt: "الراوي المخاطب / تعليمات"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/03-3.png", alt: "الراوي العليم"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04-3.png", alt: "الراوي محدود المعرفة"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05-3.png", alt: "الراوي المشارك"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06-3.png", alt: "عدة رواة"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07-3.png", alt: "راوي الوثيقة"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08-3.png", alt: "الراوي الغائب"}
   ],
   5: [
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02-4.png", alt: "الصداقة"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04-4.png", alt: "الحب"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05-4.png", alt: "الخسارة"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06-4.png", alt: "النصر"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07-4.png", alt: "الخيانة"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08-4.png", alt: "الانتقام"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/09.png", alt: "الأسرة"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/10.png", alt: "النمو الشخصي"}
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02-4.png", alt: "الخسارة والفقد"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04-4.png", alt: "العدالة والظلم"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05-4.png", alt: "الحب والتحول"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06-4.png", alt: "الذاكرة والنسيان"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07-4.png", alt: "الرحلة والتغيير"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08-4.png", alt: "الوحدة والتواصل"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/09.png", alt: "الذنب والغفران"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/10.png", alt: "الهوية والمصير"}
   ],
   6: [
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/01-4.png", alt: "في مكان مظلم"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02-5.png", alt: "خلال عاصفة"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/03-4.png", alt: "في المدينة"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04-5.png", alt: "في الطبيعة"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05-5.png", alt: "في الحلم"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06-5.png", alt: "في الماضي"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07-5.png", alt: "في المستقبل"},
-    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08-5.png", alt: "في مكان غير مألوف"}
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/01-4.png", alt: "حوار"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/02-5.png", alt: "حدث"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/03-4.png", alt: "وصف"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/04-5.png", alt: "فكرة أو تأمل"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/05-5.png", alt: "ذكرى"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/06-5.png", alt: "اعتراف"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/07-5.png", alt: "خبر أو رسالة"},
+    {src: "https://fatthatmablog.wordpress.com/wp-content/uploads/2025/11/08-5.png", alt: "حلم"}
   ]
 };
 
